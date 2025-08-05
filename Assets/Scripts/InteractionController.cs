@@ -3,23 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractionController : MonoBehaviour
-{    
-    // Update is called once per frame
+{
+    public float rayDistance = 3f;
+    public LayerMask interactableLayer;
+
+    public GameObject interactionIndicator;
+
+    bool onInteraction = false;
+    GameObject interactableObject;
+
     void Update()
     {
-         RaycastHit hit;
-        // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2.5f))
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
 
-        { 
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 2.5f, Color.yellow); 
-            Debug.Log("Did Hit"); 
+        if (Physics.Raycast(ray, out hit, rayDistance, interactableLayer))
+        {
+            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                onInteraction = true;
+                interactableObject = hit.collider.gameObject;
+
+                // Mover el indicador al punto de impacto
+                interactionIndicator.SetActive(true);
+                interactionIndicator.transform.position = hit.point + hit.normal * 0.01f; // Un poco separado de la superficie
+                interactionIndicator.transform.rotation = Quaternion.LookRotation(hit.normal) * Quaternion.Euler(90f, 0f, 0f);
+            }
+            else
+            {
+                onInteraction = false;
+                interactableObject = null;
+                interactionIndicator.SetActive(false);
+            }
         }
         else
-        { 
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 2.5f, Color.white); 
-            Debug.Log("Did not Hit"); 
+        {
+            onInteraction = false;
+            interactableObject = null;
+            interactionIndicator.SetActive(false);
         }
 
+        if (onInteraction && Input.GetKeyDown(KeyCode.E))
+        {
+            interactableObject.GetComponent<IInteractable>().Interact();
+        }
     }
 }
