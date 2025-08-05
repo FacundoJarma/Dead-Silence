@@ -27,8 +27,14 @@ public class InteractionController : MonoBehaviour
 
                 // Mover el indicador al punto de impacto
                 interactionIndicator.SetActive(true);
-                interactionIndicator.transform.position = hit.point + hit.normal * 0.01f; // Un poco separado de la superficie
-                interactionIndicator.transform.rotation = Quaternion.LookRotation(hit.normal) * Quaternion.Euler(90f, 0f, 0f);
+
+                Vector3 indicatorPos = interactableObject.transform.position;
+                indicatorPos.y += 1;
+                interactionIndicator.transform.position = indicatorPos;
+
+                Vector3 lookDirection = transform.position - interactionIndicator.transform.position;
+                interactionIndicator.transform.rotation = Quaternion.LookRotation(lookDirection) * Quaternion.Euler(90f, 0f, 0f);
+
             }
             else
             {
