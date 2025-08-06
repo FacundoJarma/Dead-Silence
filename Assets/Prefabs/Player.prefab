@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: []
-  maxSize: 10
+  maxSize: 5
 --- !u!1 &8760418876783521896
 GameObject:
   m_ObjectHideFlags: 0
