@@ -14,7 +14,7 @@ public class AlertManager : MonoBehaviour
     {
         Success_TEXT.text = text;
         Success.SetActive(true);
-        StartCoroutine(HideAlertAfterDelay(duration, Danger));
+        StartCoroutine(HideAlertAfterDelay(duration, Success));
     }
 
     public void DisplayDangerAlert(string text, float duration = 2f)
