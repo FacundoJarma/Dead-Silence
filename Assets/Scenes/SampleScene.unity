@@ -570,8 +570,9 @@ GameObject:
   - component: {fileID: 530716977}
   - component: {fileID: 530716976}
   - component: {fileID: 530716975}
+  - component: {fileID: 530716979}
   m_Layer: 5
-  m_Name: Inventory UI
+  m_Name: Inventory Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -657,6 +658,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &530716979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530716974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304ce23eb3c1237409fa6fa912b119d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryUI: {fileID: 629853641}
+  inventoryManager: {fileID: 8760418876666012591}
 --- !u!1 &629853641
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,7 +725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.94509804}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1530,6 +1545,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6dfdee2294e7d848926ed4b1b101e5c, type: 3}
+--- !u!114 &8760418876666012591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4879311186585603058, guid: f6dfdee2294e7d848926ed4b1b101e5c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8760418876666012590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684184494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb3afe35abfb0eb418acd3b53e032f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8961094396124918496
 PrefabInstance:
   m_ObjectHideFlags: 0
