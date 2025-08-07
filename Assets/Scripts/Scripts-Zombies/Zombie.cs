@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class Zombie : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class Zombie : MonoBehaviour
     public LayerMask capaJugador;          // Capa del jugador
 
     public float distanciaVision = 10f;
-    float tiempoEspera = 0.5f;        // Tiempo de pausa entre puntos
+    public float tiempoEspera = 0.5f;      // Tiempo de pausa entre puntos
 
     void Start()
     {
@@ -35,8 +35,16 @@ public class Zombie : MonoBehaviour
     {
         if (PuedeVerAlJugador())
         {
-            StopAllCoroutines(); // Cancela patrullaje si ve al jugador
-            agente.SetDestination(jugador.transform.position);
+            if (patrullando)
+            {
+                StopAllCoroutines();   // Detiene patrullaje si empieza a perseguir
+                patrullando = false;
+            }
+
+            if (jugador != null)
+            {
+                agente.SetDestination(jugador.transform.position);
+            }
         }
         else if (!patrullando && puntosPatrulla.Length > 0)
         {
@@ -48,8 +56,10 @@ public class Zombie : MonoBehaviour
     {
         patrullando = true;
 
-        while (!PuedeVerAlJugador())
+        while (true)
         {
+            if (PuedeVerAlJugador()) break;
+
             int indice = Random.Range(0, puntosPatrulla.Length);
             agente.SetDestination(puntosPatrulla[indice].position);
 
@@ -77,7 +87,7 @@ public class Zombie : MonoBehaviour
     {
         if (jugador == null) return false;
 
-        Vector3 origen = transform.position + Vector3.up;
+        Vector3 origen = transform.position + Vector3.up; // Para que el raycast no toque el suelo
         Vector3 direccion = (jugador.transform.position - origen).normalized;
 
         if (Physics.Raycast(origen, direccion, out RaycastHit hit, distanciaVision, capaJugador | capaObstaculos))
