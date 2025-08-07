@@ -14,7 +14,7 @@ public class Zombie : MonoBehaviour
     public LayerMask capaJugador;          // Capa del jugador
 
     public float distanciaVision = 10f;
-    float tiempoEspera = 1f;        // Tiempo de pausa entre puntos
+    float tiempoEspera = 0.5f;        // Tiempo de pausa entre puntos
 
     void Start()
     {
