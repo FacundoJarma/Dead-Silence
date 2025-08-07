@@ -7,6 +7,9 @@ public class InventoryManager : MonoBehaviour
     public List<Item> inventory = new List<Item>();
     public int maxSize;
 
+    public delegate void InventoryChanged();
+    public event InventoryChanged onInventoryChanged;
+
     AlertManager alertManager;
     void Start()
     {
@@ -23,6 +26,8 @@ public class InventoryManager : MonoBehaviour
 
         inventory.Add(i);
         alertManager.DisplaySuccessAlert("Objeto añadido", 1f);
+        onInventoryChanged?.Invoke();
+
 
     }
 }
