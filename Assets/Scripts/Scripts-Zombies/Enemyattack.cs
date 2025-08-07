@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemysatt : MonoBehaviour
+public class EnemyAttack : MonoBehaviour
 {
     public int daño = 10; // Cantidad de daño que hace el zombie
 

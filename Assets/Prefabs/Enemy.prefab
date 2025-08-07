@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8946472581045641585}
   - component: {fileID: 8946472581045641584}
   - component: {fileID: 135562118667249522}
+  - component: {fileID: 5264055528282126888}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -129,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugador: {fileID: 0}
+  puntosPatrulla: []
   capaObstaculos:
     serializedVersion: 2
     m_Bits: 512
@@ -149,3 +151,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5264055528282126888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8946472581045641583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5457c88b7a619240ab45a252b143e4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "da\xF1o": 10
