@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
     itemName: Gun
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: c578ad64178ed784f986424e769ce4ee, type: 3}
     isStackable: 0
 --- !u!54 &9134106924774103943
 Rigidbody:
