@@ -29,7 +29,7 @@ public class InteractionController : MonoBehaviour
                 interactionIndicator.SetActive(true);
 
                 Vector3 indicatorPos = interactableObject.transform.position;
-                indicatorPos.y += 1;
+                indicatorPos.y += interactableObject.transform.localScale.y / 2 + 1;
                 interactionIndicator.transform.position = indicatorPos;
 
                 Vector3 lookDirection = transform.position - interactionIndicator.transform.position;
