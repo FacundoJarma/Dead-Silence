@@ -399,8 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81a75cbbb3364444935eadb56570d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 7.5
-  runningSpeed: 11.5
+  walkingSpeed: 5
+  runningSpeed: 6.7
   crouchingSpeed: 3
   normalHeight: 2
   crouchingHeight: 1.25
