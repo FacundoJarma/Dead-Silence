@@ -29,6 +29,9 @@ public class Zombie : MonoBehaviour
         {
             StartCoroutine(Patrullar());
         }
+        agente = GetComponent<NavMeshAgent>();
+        if (GestorSonidos.instancia != null)
+            GestorSonidos.instancia.RegistrarZombie(this);
     }
 
     void Update()
@@ -100,4 +103,11 @@ public class Zombie : MonoBehaviour
 
         return false;
     }
+    public void IrAHaciaSonido(Vector3 posicion)
+    {
+        StopAllCoroutines(); // Cancela patrullaje/persecución anterior
+        agente.SetDestination(posicion);
+    }
+
+
 }
