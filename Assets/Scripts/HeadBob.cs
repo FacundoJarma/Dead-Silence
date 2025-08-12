@@ -65,7 +65,7 @@ public class HeadBob : MonoBehaviour
         switch (action)
         {
             case "Running":
-                bobAmount = 0.15f;
+                bobAmount = 0.10f;
                 bobSpeed = 15f;
                 break;
 

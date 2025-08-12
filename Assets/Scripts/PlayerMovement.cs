@@ -7,6 +7,11 @@ public class PlayerMovement : MonoBehaviour
     public float walkingSpeed = 7.5f;
     public float runningSpeed = 11.5f;
     public float crouchingSpeed = 3f;
+    public float maxStamina = 100;
+    float actualStamina = 0f;
+
+    public delegate void OnStaminaChanged(float newStamina);
+    public event OnStaminaChanged onStaminaChanged;
 
     public float normalHeight = 2f;
     public float crouchingHeight = 1.25f;
@@ -38,6 +43,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+
+        actualStamina = maxStamina;
+
         characterController = GetComponent<CharacterController>();
         currentHeight = normalHeight;
         currentCamPos = cameraHolder.localPosition;
@@ -55,6 +63,21 @@ public class PlayerMovement : MonoBehaviour
         bool wantsToCrouch = Input.GetKey(KeyCode.C);
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
 
+        if (isRunning)
+        {
+            actualStamina -= 0.5f;
+            if(actualStamina <= 0)
+            {
+                isRunning = false;
+                actualStamina = 0;
+            }
+            onStaminaChanged?.Invoke(actualStamina);
+        }
+        else if (actualStamina < maxStamina)
+        {
+            actualStamina += 0.7f;
+            onStaminaChanged?.Invoke(actualStamina);
+        }
 
         // AGACHARSE
         if (wantsToCrouch)
@@ -95,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isCrouching && targetSpeed == walkingSpeed)
         {
-            acceleration = 5f;
+            acceleration = 7f;
         }
         else if (isCrouching && currentSpeed > runningSpeed - 0.1f)
         {
@@ -103,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            acceleration = 10f;
+            acceleration = 12f;
         }
 
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, Time.deltaTime * acceleration);
