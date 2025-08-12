@@ -29,9 +29,10 @@ public class Zombie : MonoBehaviour
         {
             StartCoroutine(Patrullar());
         }
-        agente = GetComponent<NavMeshAgent>();
         if (GestorSonidos.instancia != null)
+        {
             GestorSonidos.instancia.RegistrarZombie(this);
+        }
     }
 
     void Update()
