@@ -25,14 +25,20 @@ public class Computadora : MonoBehaviour, IInteractable
             audioSource.PlayOneShot(sonidoComputadora);
         }
 
-        // Avisar a los zombies que hubo ruido
-        if (GestorSonidos.instancia != null)
+        // Buscar zombies cercanos y avisarles
+        GameObject[] zombies = GameObject.FindGameObjectsWithTag("Zombie");
+        foreach (GameObject zGO in zombies)
         {
-            GestorSonidos.instancia.EmitirSonido(transform.position, radioSonido);
-        }
-        else
-        {
-            Debug.LogWarning("No se encontró la instancia de GestorSonidos en la escena.");
+            float distancia = Vector3.Distance(transform.position, zGO.transform.position);
+            Debug.Log(distancia);
+            if (distancia <= radioSonido)
+            {
+                Zombie z = zGO.GetComponent<Zombie>();
+                if (z != null)
+                {
+                    z.IrAHaciaSonido(transform.position);
+                }
+            }
         }
     }
 }

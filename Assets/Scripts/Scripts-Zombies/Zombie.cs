@@ -7,6 +7,7 @@ public class Zombie : MonoBehaviour
 {
     private NavMeshAgent agente;
     private bool patrullando = false;
+    private bool yendoASonido = false;
 
     public GameObject jugador;
     public Transform[] puntosPatrulla;     // Puntos posibles de patrulla
@@ -29,29 +30,25 @@ public class Zombie : MonoBehaviour
         {
             StartCoroutine(Patrullar());
         }
-        if (GestorSonidos.instancia != null)
-        {
-            GestorSonidos.instancia.RegistrarZombie(this);
-        }
     }
 
     void Update()
     {
         if (PuedeVerAlJugador())
         {
-            if (patrullando)
-            {
-                StopAllCoroutines();   // Detiene patrullaje si empieza a perseguir
-                patrullando = false;
-            }
+            // Cancelar cualquier otra cosa y perseguir al jugador
+            StopAllCoroutines();
+            patrullando = false;
+            yendoASonido = false;
 
             if (jugador != null)
             {
                 agente.SetDestination(jugador.transform.position);
             }
         }
-        else if (!patrullando && puntosPatrulla.Length > 0)
+        else if (!patrullando && !yendoASonido && puntosPatrulla.Length > 0)
         {
+            // Solo patrullar si no está yendo hacia un sonido
             StartCoroutine(Patrullar());
         }
     }
@@ -91,7 +88,7 @@ public class Zombie : MonoBehaviour
     {
         if (jugador == null) return false;
 
-        Vector3 origen = transform.position + Vector3.up; // Para que el raycast no toque el suelo
+        Vector3 origen = transform.position + Vector3.up;
         Vector3 direccion = (jugador.transform.position - origen).normalized;
 
         if (Physics.Raycast(origen, direccion, out RaycastHit hit, distanciaVision, capaJugador | capaObstaculos))
@@ -104,11 +101,29 @@ public class Zombie : MonoBehaviour
 
         return false;
     }
+
     public void IrAHaciaSonido(Vector3 posicion)
     {
-        StopAllCoroutines(); // Cancela patrullaje/persecución anterior
+        StopAllCoroutines(); // Cancelar patrulla o cualquier otro movimiento
+        patrullando = false;
+        yendoASonido = true;
+
         agente.SetDestination(posicion);
+        StartCoroutine(EsperarEnPosicion(posicion));
     }
 
+    IEnumerator EsperarEnPosicion(Vector3 posicion)
+    {
+        // Esperar a llegar
+        while (agente.pathPending || agente.remainingDistance > 0.5f)
+        {
+            if (PuedeVerAlJugador()) yield break; // Si ve al jugador, cancelar
+            yield return null;
+        }
 
+        // Esperar un poco en el lugar
+        yield return new WaitForSeconds(tiempoEspera);
+
+        yendoASonido = false; // Listo, puede volver a patrullar
+    }
 }
