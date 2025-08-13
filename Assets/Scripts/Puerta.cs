@@ -5,16 +5,17 @@ public class Puerta : MonoBehaviour, IInteractable
 {
     public float anguloApertura = 90f;
     public float velocidadApertura = 2f;
-
-    private bool abierta = false;
+    public GameObject puerta;
+    public bool abierta = false;
     private Quaternion rotacionCerrada;
     private Quaternion rotacionAbierta;
 
     private NavMeshObstacle obstaculo;
 
+
     void Start()
     {
-        rotacionCerrada = transform.rotation;
+        rotacionCerrada = puerta.transform.rotation;
         rotacionAbierta = Quaternion.Euler(transform.eulerAngles + new Vector3(0, anguloApertura, 0));
 
         obstaculo = GetComponent<NavMeshObstacle>();
@@ -46,17 +47,17 @@ public class Puerta : MonoBehaviour, IInteractable
 
     System.Collections.IEnumerator MoverPuerta(Quaternion destino)
     {
-        Quaternion inicio = transform.rotation;
+        Quaternion inicio = puerta.transform.rotation;
         float t = 0f;
 
         while (t < 1f)
         {
             t += Time.deltaTime * velocidadApertura;
             float suavizado = Mathf.SmoothStep(0f, 1f, t); // Suaviza el movimiento
-            transform.rotation = Quaternion.Slerp(inicio, destino, suavizado);
+            puerta.transform.rotation = Quaternion.Slerp(inicio, destino, suavizado);
             yield return null;
         }
 
-        transform.rotation = destino; // Asegura que termine exacta
+        puerta.transform.rotation = destino; // Asegura que termine exacta
     }
 }

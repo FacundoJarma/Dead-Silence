@@ -9,9 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1048968562835578338}
-  - component: {fileID: 7717799443330481407}
   - component: {fileID: 3492235178450070711}
-  - component: {fileID: 1147868452}
   m_Layer: 9
   m_Name: Puerta Visagra
   m_TagString: Untagged
@@ -27,27 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019358499131787403}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3924407993653735114}
   m_Father: {fileID: 4220769049703017881}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7717799443330481407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019358499131787403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46e216d2faca3fb44b8b42508cc409e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anguloApertura: 90
-  velocidadApertura: 2
 --- !u!65 &3492235178450070711
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61,22 +45,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0, y: 3, z: 2.25}
   m_Center: {x: 0, y: -0.05, z: 1}
---- !u!208 &1147868452
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019358499131787403}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 0
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &4223594729433290466
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +54,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4220769049703017881}
+  - component: {fileID: 7736996535885301650}
+  - component: {fileID: 5217809157254310849}
   m_Layer: 9
   m_Name: Puerta
   m_TagString: Untagged
@@ -108,6 +78,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7736996535885301650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4223594729433290466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e216d2faca3fb44b8b42508cc409e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anguloApertura: 90
+  velocidadApertura: 2
+  puerta: {fileID: 2019358499131787403}
+  abierta: 0
+--- !u!65 &5217809157254310849
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4223594729433290466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3, z: 2.25}
+  m_Center: {x: 0, y: 0, z: 0.75}
 --- !u!1 &6228178402391965531
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +118,7 @@ GameObject:
   - component: {fileID: 3924407993653735114}
   - component: {fileID: 4493121945925356013}
   - component: {fileID: 3167433730927861496}
-  - component: {fileID: 2670053784271270248}
+  - component: {fileID: 2719528738656209139}
   m_Layer: 9
   m_Name: Puerta
   m_TagString: Untagged
@@ -186,7 +185,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!208 &2670053784271270248
+--- !u!208 &2719528738656209139
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
