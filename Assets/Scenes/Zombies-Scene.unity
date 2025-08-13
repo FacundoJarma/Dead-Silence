@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -365,10 +365,20 @@ PrefabInstance:
       propertyPath: puntosPatrulla.Array.data[2]
       value: 
       objectReference: {fileID: 1626523268}
+    - target: {fileID: 1737672277392409366, guid: 9e73e1e1f600f0b4aac1993970c1570b,
+        type: 3}
+      propertyPath: capaJugador.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 1737672277392409373, guid: 9e73e1e1f600f0b4aac1993970c1570b,
         type: 3}
       propertyPath: m_Speed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1737672277392409373, guid: 9e73e1e1f600f0b4aac1993970c1570b,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1737672277501201711, guid: 9e73e1e1f600f0b4aac1993970c1570b,
         type: 3}
@@ -476,6 +486,7 @@ Transform:
   - {fileID: 833680440}
   - {fileID: 937785112}
   - {fileID: 1743248106}
+  - {fileID: 1548690125}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -506,6 +517,11 @@ PrefabInstance:
       propertyPath: puntosPatrulla.Array.data[2]
       value: 
       objectReference: {fileID: 1526561417}
+    - target: {fileID: 3347100982564164547, guid: 48b2ceb9dd2acf148b49f1c914ed7b0e,
+        type: 3}
+      propertyPath: capaJugador.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 3347100983008854042, guid: 48b2ceb9dd2acf148b49f1c914ed7b0e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -972,7 +988,7 @@ Transform:
   m_GameObject: {fileID: 766478230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.93, y: 0.59, z: -1.91}
-  m_LocalScale: {x: 2, y: 5, z: 26}
+  m_LocalScale: {x: 2, y: 5, z: 24}
   m_Children: []
   m_Father: {fileID: 281020442}
   m_RootOrder: 0
@@ -1115,6 +1131,108 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &853769053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1105255204864031062, guid: 4ddb7bc763bd9564da01eb5c4abb41d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1015107537}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &853769058
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853769053}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 34afea1b9c1b5134781494a0742a8ba3, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &906975179 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8760418876648068785, guid: f6dfdee2294e7d848926ed4b1b101e5c,
@@ -1272,7 +1390,7 @@ PrefabInstance:
     - target: {fileID: 1105255204864031056, guid: 4ddb7bc763bd9564da01eb5c4abb41d4,
         type: 3}
       propertyPath: radioSonido
-      value: 100
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1105255204864031062, guid: 4ddb7bc763bd9564da01eb5c4abb41d4,
         type: 3}
@@ -1434,6 +1552,11 @@ PrefabInstance:
       propertyPath: puntosPatrulla.Array.data[2]
       value: 
       objectReference: {fileID: 1245275357}
+    - target: {fileID: 1895273086265637932, guid: d64b0ff079ec5014bb8e1e412908991b,
+        type: 3}
+      propertyPath: capaJugador.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d64b0ff079ec5014bb8e1e412908991b, type: 3}
 --- !u!1 &1047088392
@@ -1578,7 +1701,7 @@ PrefabInstance:
     - target: {fileID: 4220769049703017881, guid: 09267fc2f087e514b96425609cd3c383,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.6449661
+      value: -2.67
       objectReference: {fileID: 0}
     - target: {fileID: 4220769049703017881, guid: 09267fc2f087e514b96425609cd3c383,
         type: 3}
@@ -2115,12 +2238,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548690121}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 22.59, y: 1.45, z: -7.98}
   m_LocalScale: {x: 2, y: 3, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 281020442}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!208 &1548690126
 NavMeshObstacle:
