@@ -11,6 +11,7 @@ public class Computadora : MonoBehaviour, IInteractable
 
     [Header("Configuración de espera de zombies")]
     public float tiempoEsperaZombies = 2f; // Tiempo que los zombies esperan al llegar
+    public float distanciaParada = 1f; // Distancia mínima a la computadora
 
     void Start()
     {
@@ -50,19 +51,25 @@ public class Computadora : MonoBehaviour, IInteractable
     }
 
     private IEnumerator EnviarZombie(Zombie z)
+{
+    // Calcular punto de destino a cierta distancia antes de la computadora
+    Vector3 direccion = (transform.position - z.transform.position).normalized;
+    Vector3 puntoDestino = transform.position - direccion * distanciaParada;
+
+    // Mandar zombie hacia el punto calculado
+    z.IrAHaciaSonido(puntoDestino);
+
+    // Esperar a que llegue
+    while (Vector3.Distance(z.transform.position, puntoDestino) > 5f)
     {
-        // Mandar zombie hacia la compu
-        z.IrAHaciaSonido(transform.position);
-
-        // Esperar a que llegue
-        while (Vector3.Distance(z.transform.position, transform.position) > 1.5f)
-        {
-            yield return null;
-        }
-
-        // Esperar un tiempo en el lugar
-        yield return new WaitForSeconds(tiempoEsperaZombies);
-
-        // Luego vuelve a patrullar (si tienes función para eso)
+        yield return null;
     }
+
+    // Esperar en el lugar
+    yield return new WaitForSeconds(tiempoEsperaZombies);
+
+    // Volver a patrullar
+    z.VolverAPatrullar();
+}
+
 }

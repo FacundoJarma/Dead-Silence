@@ -125,4 +125,12 @@ public class Zombie : MonoBehaviour
         Gizmos.DrawRay(transform.position, derecha * distanciaVision);
         Gizmos.DrawRay(transform.position, izquierda * distanciaVision);
     }
+    public void VolverAPatrullar()
+{
+    StopAllCoroutines();
+    if (puntosPatrulla.Length > 0)
+    {
+        StartCoroutine(Patrullar());
+    }
+}
 }
