@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AlertManager
   - Zombie
+  - Model
   layers:
   - Default
   - TransparentFX
