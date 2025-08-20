@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3939639122711718131}
   - component: {fileID: 3939639122711718129}
   - component: {fileID: 3939639122711718128}
+  - component: {fileID: 208236882358894814}
   m_Layer: 0
   m_Name: Carro
   m_TagString: Untagged
@@ -138,3 +139,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!208 &208236882358894814
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939639122711718132}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.044, y: 0.91200006, z: 0.432}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.072000004, y: 0.027, z: -0.002}
+  m_TimeToStationary: 0.5
