@@ -9,37 +9,10 @@ public class InventoryUIManager : MonoBehaviour
     public InventoryManager inventoryManager;
     public GameObject InventoySlot;
 
-    bool isOpen = false;
 
     void Start()
     {
         inventoryManager.onInventoryChanged += UpdateUI;
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if (isOpen)
-            {
-                Close();
-                isOpen = false;
-            }
-            else
-            {
-                Open();
-                isOpen = true;
-            }
-        }
-    }
-    public void Open()
-    {
-        inventoryUI.SetActive(true);
-    }
-
-    public void Close()
-    {
-        inventoryUI.SetActive(false);
     }
 
     public void UpdateUI()
