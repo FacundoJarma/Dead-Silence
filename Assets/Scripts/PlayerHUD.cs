@@ -10,6 +10,7 @@ public class PlayerHUD : MonoBehaviour
     public TextMeshProUGUI healthText;
 
     public RectTransform staminaBar;
+    public RectTransform healthBar;
     public PlayerMovement playerMovement;
     void Start()
     {
@@ -18,7 +19,7 @@ public class PlayerHUD : MonoBehaviour
     }
     void UpdateHealthBar(int currentHealth)
     {
-        healthText.text = currentHealth.ToString();
+        healthBar.localScale = new Vector3(currentHealth / 100f, 1f, 1f);
     }
     void UpdateStaminaBar(float currentStamina)
     {
