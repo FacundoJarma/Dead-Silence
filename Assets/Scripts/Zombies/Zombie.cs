@@ -5,8 +5,12 @@ using UnityEngine.AI;
 
 public class Zombie : MonoBehaviour
 {
-     private NavMeshAgent agente;
+    private NavMeshAgent agente;
     private NodoBT arbol;
+
+    [Header("Patrulla Compu")]
+    public Transform[] puntosCompu; // puntos de patrulla cerca de la compu
+    private bool patrullaCompuActiva = false;
 
     [Header("Jugador")]
     public GameObject jugador;
@@ -96,14 +100,6 @@ public class Zombie : MonoBehaviour
         return true; // sigue esperando
     }
 
-    public void Patrullar()
-    {
-        if (!agente.hasPath && puntosPatrulla.Length > 0)
-        {
-            int indice = Random.Range(0, puntosPatrulla.Length);
-            agente.SetDestination(puntosPatrulla[indice].position);
-        }
-    }
     public void VolverAPatrullar()
     {
         Patrullar();
@@ -114,4 +110,46 @@ public class Zombie : MonoBehaviour
         ultimoSonido = pos;
         haySonido = true;
     }
+    public void ActivarPatrullaCompu()
+{
+    patrullaCompuActiva = true;
+    IrAPuntoCompu();
+}
+
+    // Desactiva la patrulla de la compu
+    public void DesactivarPatrullaCompu()
+{
+    patrullaCompuActiva = false;
+}
+
+// Patrulla general (usa patrulla normal o la de la compu según el estado)
+public void Patrullar()
+{
+    if (patrullaCompuActiva)
+    {
+        if (!agente.hasPath && puntosCompu.Length > 0)
+        {
+            IrAPuntoCompu();
+        }
+    }
+    else
+    {
+        if (!agente.hasPath && puntosPatrulla.Length > 0)
+        {
+            int indice = Random.Range(0, puntosPatrulla.Length);
+            agente.SetDestination(puntosPatrulla[indice].position);
+        }
+    }
+}
+
+private void IrAPuntoCompu()
+{
+    int indice = Random.Range(0, puntosCompu.Length);
+    agente.SetDestination(puntosCompu[indice].position);
+}
+    public void AsignarPuntosCompu(Transform[] puntos)
+{
+    puntosCompu = puntos;
+}
+
 }
