@@ -24,12 +24,22 @@ public class InteractionController : MonoBehaviour
 
             if (interactable != null)
             {
-                // Guardar referencia
                 if (interactableObject != hit.collider.gameObject)
                 {
-                    ClearOutline(); // Quitar outline previo
+                    ClearOutline(); 
                     interactableObject = hit.collider.gameObject;
-                    interactableRenderer = interactableObject.GetComponent<Renderer>();
+
+                    // 🔹 Buscar el hijo con etiqueta "Model"
+                    Transform model = interactableObject.transform.Find("Model");
+                    if (model != null)
+                    {
+                        interactableRenderer = model.GetComponent<Renderer>();
+                    }
+                    else
+                    {
+                        interactableRenderer = interactableObject.GetComponent<Renderer>();
+                    }
+
                     SetOutline(true);
                 }
 
