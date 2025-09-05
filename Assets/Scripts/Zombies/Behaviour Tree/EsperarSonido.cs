@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EsperarSonido : Node
+public class EsperarSonido : NodoBT
 {
     private Zombie zombie;
     private float tiempoEspera;
     private float temporizador;
     private bool patrullando;
 
-    public EsperarSonido(Zombie z, float tiempo)
+    public EsperarSonido(Zombie z, float tiempo = 5f)
     {
         zombie = z;
         tiempoEspera = tiempo;
@@ -17,11 +17,11 @@ public class EsperarSonido : Node
         patrullando = false;
     }
 
-    public override NodeState Evaluate()
+    public override bool Ejecutar()
     {
         if (!patrullando)
         {
-            zombie.ActivarPatrulla();
+            zombie.ActivarPatrullaCompu();
             patrullando = true;
         }
 
@@ -29,14 +29,14 @@ public class EsperarSonido : Node
 
         if (temporizador >= tiempoEspera)
         {
-            zombie.DesactivarPatrulla();
+            zombie.DesactivarPatrullaCompu();
             temporizador = 0f;
             patrullando = false;
 
-            return NodeState.Success;
+            return true;
         }
+        return true;
 
-        return NodeState.Running;
     }
 }
 

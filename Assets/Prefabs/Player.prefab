@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5792726, g: 0.754717, b: 0.31683874, a: 1}
+  m_Color: {r: 0.31764707, g: 0.594774, b: 0.7529412, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -429,8 +429,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -285.54, y: -117.1}
-  m_SizeDelta: {x: 185.76282, y: -244.03703}
+  m_AnchoredPosition: {x: -303, y: -129.5}
+  m_SizeDelta: {x: 0, y: -301.07983}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2020840980
 CanvasRenderer:
@@ -597,7 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7529412, g: 0.35045704, b: 0.31764707, a: 1}
+  m_Color: {r: 0.4545898, g: 0.7529412, b: 0.31764707, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -647,8 +647,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -231.22, y: -140}
-  m_SizeDelta: {x: 763.69104, y: -132.1867}
+  m_AnchoredPosition: {x: -261.16, y: -151.5}
+  m_SizeDelta: {x: 445.1571, y: -132.1867}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9190969607338259287
 CanvasRenderer:
@@ -837,7 +837,7 @@ MonoBehaviour:
   playerCamera: {fileID: 8760418877334754567}
   cameraHolder: {fileID: 8760418877676247267}
   lookSpeed: 2
-  lookXLimit: 45
+  lookXLimit: 90
   canMove: 1
 --- !u!114 &4879311186585603058
 MonoBehaviour:

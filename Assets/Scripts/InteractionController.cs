@@ -30,10 +30,20 @@ public class InteractionController : MonoBehaviour
                     interactableObject = hit.collider.gameObject;
 
                     // 🔹 Buscar el hijo con etiqueta "Model"
-                    Transform model = interactableObject.transform.Find("Model");
+                    Transform model = null;
+                    foreach (Transform child in interactableObject.GetComponentsInChildren<Transform>())
+                    {
+                        if (child.CompareTag("Model"))
+                        {
+                            model = child;
+                            break;
+                        }
+                    }
+                    Debug.Log(model);
                     if (model != null)
                     {
                         interactableRenderer = model.GetComponent<Renderer>();
+                        Debug.Log(interactableRenderer);
                     }
                     else
                     {
@@ -74,12 +84,12 @@ public class InteractionController : MonoBehaviour
     void SetOutline(bool state)
     {
         if (interactableRenderer != null)
-            interactableRenderer.material.SetFloat("_Outline", state ? 0.05f : 0f);
+            interactableRenderer.material.SetFloat("_Width", state ? 0.02f : 0f);
     }
 
     void ClearOutline()
     {
         if (interactableRenderer != null)
-            interactableRenderer.material.SetFloat("_Outline", 0f);
+            interactableRenderer.material.SetFloat("_Width", 0f);
     }
 }
