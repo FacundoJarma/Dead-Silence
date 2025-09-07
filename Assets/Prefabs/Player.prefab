@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: []
-  maxSize: 5
+  maxSize: 4
 --- !u!114 &2089893112
 MonoBehaviour:
   m_ObjectHideFlags: 0

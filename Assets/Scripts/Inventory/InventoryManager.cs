@@ -7,17 +7,47 @@ public class InventoryManager : MonoBehaviour
     public List<Item> inventory = new List<Item>();
     public int maxSize;
 
+    int actualFocus = 0;
+    int prevFocus = -1;
+
     public delegate void InventoryChanged();
     public event InventoryChanged onInventoryChanged;
 
+    public delegate void InventoryFocusChanged(float focus);
+    public event InventoryFocusChanged onInventoryFocusChanged;
+
     AlertManager alertManager;
+
     void Start()
     {
         alertManager = FindObjectOfType<AlertManager>();
+        onInventoryFocusChanged?.Invoke(0);
     }
+
+    void Update()
+    {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        if (scroll > 0f) // scroll arriba
+            actualFocus--;
+        else if (scroll < 0f) // scroll abajo
+            actualFocus++;
+
+        // Wrap-around (vuelve al inicio o al final)
+        if (actualFocus < 0)
+            actualFocus = inventory.Count - 1;
+        else if (actualFocus >= inventory.Count)
+            actualFocus = 0;
+
+        if (actualFocus != prevFocus)
+        {
+            onInventoryFocusChanged?.Invoke(actualFocus);
+            prevFocus = actualFocus;
+        }
+    }
+
     public void AddItem(Item i)
     {
-        //TODO: Chequeos previos
         if (inventory.Count >= maxSize)
         {
             alertManager.DisplayDangerAlert("Inventario lleno.");
@@ -27,7 +57,5 @@ public class InventoryManager : MonoBehaviour
         inventory.Add(i);
         alertManager.DisplaySuccessAlert("Objeto añadido", 1f);
         onInventoryChanged?.Invoke();
-
-
     }
 }

@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -262.08, y: -120}
-  m_SizeDelta: {x: -564.1583, y: -260}
+  m_AnchoredPosition: {x: -255, y: -191}
+  m_SizeDelta: {x: -550, y: -400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3786089638001949955
 CanvasRenderer:
@@ -93,8 +93,8 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 10, y: 10}
-  m_Spacing: {x: 10, y: 10}
+  m_CellSize: {x: 30, y: 10}
+  m_Spacing: {x: 30, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &3786089638168127969
@@ -213,3 +213,4 @@ MonoBehaviour:
   inventoryManager: {fileID: 0}
   InventoySlot: {fileID: 5953949130496646402, guid: 061b32850a2ea7b48a88cf0daa0f646c,
     type: 3}
+  InventorySlots: []
