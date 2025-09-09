@@ -64,16 +64,6 @@ private IEnumerator EnviarZombie(Zombie z)
     {
         yield return null;
     }
-
-    // Cuando llegó, activar patrulla de la compu
-    z.AsignarPuntosCompu(puntosPatrullaCompu);
-    z.ActivarPatrullaCompu();
-
-    // Esperar un rato
-    yield return new WaitForSeconds(tiempoEsperaZombies);
-
-    // Desactivar patrulla de la compu → vuelve a patrulla normal
-    z.DesactivarPatrullaCompu();
 }
 
 }

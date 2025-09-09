@@ -35,8 +35,7 @@ public class Zombie : MonoBehaviour
             ),
             new Sequence(
                 new HaySonido(this),
-                new IrSonido(this),
-                new EsperarSonido(this)
+                new IrSonido(this)
             ),
             new Patrullar(this)
         );
@@ -89,16 +88,20 @@ public class Zombie : MonoBehaviour
     }
 
     public bool EsperarEnSonido()
+{
+    temporizadorSonido += Time.deltaTime;
+    if (temporizadorSonido >= tiempoEsperaSonido)
     {
-        temporizadorSonido += Time.deltaTime;
-        if (temporizadorSonido >= tiempoEsperaSonido)
-        {
-            haySonido = false;
-            temporizadorSonido = 0f;
-            return false; // termina la espera
-        }
-        return true; // sigue esperando
+        haySonido = false;
+        temporizadorSonido = 0f;
+
+        VolverAPatrullar(); // <- fuerza a volver
+
+        return false; // termina la espera
     }
+    return true; // sigue esperando
+}
+
 
     public void VolverAPatrullar()
     {
@@ -110,17 +113,6 @@ public class Zombie : MonoBehaviour
         ultimoSonido = pos;
         haySonido = true;
     }
-    public void ActivarPatrullaCompu()
-{
-    patrullaCompuActiva = true;
-    IrAPuntoCompu();
-}
-
-    // Desactiva la patrulla de la compu
-    public void DesactivarPatrullaCompu()
-{
-    patrullaCompuActiva = false;
-}
 
 // Patrulla general (usa patrulla normal o la de la compu según el estado)
 public void Patrullar()
