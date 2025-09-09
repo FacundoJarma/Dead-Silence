@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 845230f78abff3b468830eec86a01bce
+guid: b9124be71b8c78942911324e356c327b
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Cube
-    100004: Marco_Puerta
+    100000: Cube
+    100002: Marco_Puerta
+    100004: //RootNode
     100006: Pared_02
     100008: Pared_02.001
     100010: Pared_03
@@ -16,9 +16,9 @@ ModelImporter:
     100020: Ventana_Puerta
     100022: ventanas
     100024: ventanas.001
-    400000: //RootNode
-    400002: Cube
-    400004: Marco_Puerta
+    400000: Cube
+    400002: Marco_Puerta
+    400004: //RootNode
     400006: Pared_02
     400008: Pared_02.001
     400010: Pared_03
@@ -73,67 +73,8 @@ ModelImporter:
     4300018: Ventana_Puerta
     4300020: Puerta
     4300022: Cube
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Madera
-    second: {fileID: 2100000, guid: 0dd114c973f57b1478ea1b6bc381de59, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 74a980491359aab41ac367d0a28d5eec, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: 8c1b9a80fcebd6e4395b5332af19b093, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pared
-    second: {fileID: 2100000, guid: 7e720270161ddb24190f6501805f4fad, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pared.001
-    second: {fileID: 2100000, guid: c45fffbecc6f9d74fabaf13e958993c3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pared.002
-    second: {fileID: 2100000, guid: 3a9c3076cdfe0084ab0863c3d78e94cb, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Techo
-    second: {fileID: 2100000, guid: cacf30f99838b1f4eab6863c6995a357, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ventana
-    second: {fileID: 2100000, guid: eb2ade474ad6d604e83393578de787dd, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Planks_Diff
-    second: {fileID: 2800000, guid: d749d29184e1e0b4aa868cdcaefec4f0, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: TECHO
-    second: {fileID: 2800000, guid: f7dfda4c3dc68d24b8b9a0cabeac588b, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: TexturaPared2
-    second: {fileID: 2800000, guid: 38e5329fc4ff062449498610b41dcb41, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: images
-    second: {fileID: 2800000, guid: 55caf22ac6feda74d85d49f7be706ec2, type: 3}
+    2186277476908879412: ImportLogs
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
