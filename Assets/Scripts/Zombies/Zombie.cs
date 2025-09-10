@@ -9,23 +9,34 @@ public class Zombie : MonoBehaviour
     private NodoBT arbol;
 
     [Header("Patrulla Compu")]
-    public Transform[] puntosCompu; // puntos de patrulla cerca de la compu
+    public Transform[] puntosCompu; 
     private bool patrullaCompuActiva = false;
 
     [Header("Jugador")]
     public GameObject jugador;
 
-    [Header("Patrulla")]
+    [Header("Patrulla General")]
     public Transform[] puntosPatrulla;
 
+    // --- Sonido ---
     private Vector3 ultimoSonido;
     private bool haySonido = false;
     private float tiempoEsperaSonido = 2f;
     private float temporizadorSonido = 0f;
 
+    // --- Anti-bug / Anti-atascos ---
+    private Vector3 ultimaPosicion;
+    private float tiempoAtascado = 0f;
+
     void Start()
     {
         agente = GetComponent<NavMeshAgent>();
+
+        // Configuración para evitar bugs
+        agente.avoidancePriority = Random.Range(20, 80); 
+        agente.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
+        agente.autoRepath = true;
+        agente.autoBraking = false;
 
         // Armamos el árbol:
         arbol = new Selector(
@@ -35,7 +46,9 @@ public class Zombie : MonoBehaviour
             ),
             new Sequence(
                 new HaySonido(this),
-                new IrSonido(this)
+                new IrSonido(this),
+                new EsperarSonido(this),
+                new VolverAPatrullar(this)
             ),
             new Patrullar(this)
         );
@@ -43,12 +56,39 @@ public class Zombie : MonoBehaviour
 
     void Update()
     {
-        // Calcula la dirección hacia el jugador, normalizada y con la longitud de 10 unidades
-        Vector3 direccion = (jugador.transform.position - transform.position).normalized * 10f; 
-
-        // Dibuja el rayo desde la posición del zombie más 1 unidad hacia arriba
-        Debug.DrawRay(transform.position + Vector3.up, direccion, Color.red);
         arbol.Ejecutar();
+
+        // --- Anti-atascos ---
+        if (Vector3.Distance(transform.position, ultimaPosicion) < 0.05f)
+        {
+            tiempoAtascado += Time.deltaTime;
+            if (tiempoAtascado > 1.5f) // Si no se movió en 1.5s
+            {
+                RecalcularRuta();
+                tiempoAtascado = 0f;
+            }
+        }
+        else
+        {
+            tiempoAtascado = 0f;
+        }
+
+        ultimaPosicion = transform.position;
+
+        // Dibujo del rayo de visión
+        if (jugador != null)
+        {
+            Vector3 direccion = (jugador.transform.position - transform.position).normalized * 10f;
+            Debug.DrawRay(transform.position + Vector3.up, direccion, Color.red);
+        }
+    }
+
+    private void RecalcularRuta()
+    {
+        if (agente.hasPath)
+        {
+            agente.SetDestination(agente.destination); // recalcula el camino actual
+        }
     }
 
     // --------- FUNCIONES PARA LOS NODOS -----------
@@ -60,12 +100,11 @@ public class Zombie : MonoBehaviour
         Vector3 direccion = (jugador.transform.position - transform.position).normalized;
         float angulo = Vector3.Angle(transform.forward, direccion);
 
-        if (angulo < 180f) // visión en cono
+        if (angulo < 90f) // visión en cono
         {
             if (Physics.Raycast(transform.position + Vector3.up, direccion, out RaycastHit hit, 10f))
             {
-                Debug.Log(hit.collider.gameObject);
-                if (hit.collider.gameObject.CompareTag("Player"))
+                if (hit.collider.CompareTag("Player"))
                     return true;
             }
         }
@@ -88,60 +127,68 @@ public class Zombie : MonoBehaviour
     }
 
     public bool EsperarEnSonido()
-{
-    temporizadorSonido += Time.deltaTime;
-    if (temporizadorSonido >= tiempoEsperaSonido)
+    {
+        temporizadorSonido += Time.deltaTime;
+
+        if (temporizadorSonido >= tiempoEsperaSonido)
+        {
+            haySonido = false;
+            temporizadorSonido = 0f;
+            VolverAPatrullar();
+            return false; 
+        }
+
+        return true; // sigue esperando
+    }
+
+    public void TerminarSonido()
     {
         haySonido = false;
         temporizadorSonido = 0f;
-
-        VolverAPatrullar(); // <- fuerza a volver
-
-        return false; // termina la espera
     }
-    return true; // sigue esperando
-}
-
 
     public void VolverAPatrullar()
     {
         Patrullar();
     }
-    // Llamado desde GestorSonidos
+
+    // --- Llamado desde Computadora ---
     public void IrAHaciaSonido(Vector3 pos)
     {
-        ultimoSonido = pos;
+        // Offset aleatorio para que no se amontonen todos
+        Vector3 offset = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
+        ultimoSonido = pos + offset;
         haySonido = true;
     }
 
-// Patrulla general (usa patrulla normal o la de la compu según el estado)
-public void Patrullar()
-{
-    if (patrullaCompuActiva)
+    // --- Patrullaje ---
+    public void Patrullar()
     {
-        if (!agente.hasPath && puntosCompu.Length > 0)
+        if (patrullaCompuActiva && puntosCompu.Length > 0)
         {
-            IrAPuntoCompu();
+            if (!agente.hasPath)
+            {
+                IrAPuntoCompu();
+            }
+        }
+        else if (puntosPatrulla.Length > 0)
+        {
+            if (!agente.hasPath)
+            {
+                int indice = Random.Range(0, puntosPatrulla.Length);
+                agente.SetDestination(puntosPatrulla[indice].position);
+            }
         }
     }
-    else
-    {
-        if (!agente.hasPath && puntosPatrulla.Length > 0)
-        {
-            int indice = Random.Range(0, puntosPatrulla.Length);
-            agente.SetDestination(puntosPatrulla[indice].position);
-        }
-    }
-}
 
-private void IrAPuntoCompu()
-{
-    int indice = Random.Range(0, puntosCompu.Length);
-    agente.SetDestination(puntosCompu[indice].position);
-}
+    private void IrAPuntoCompu()
+    {
+        int indice = Random.Range(0, puntosCompu.Length);
+        agente.SetDestination(puntosCompu[indice].position);
+    }
+
     public void AsignarPuntosCompu(Transform[] puntos)
-{
-    puntosCompu = puntos;
-}
-
+    {
+        puntosCompu = puntos;
+    }
 }

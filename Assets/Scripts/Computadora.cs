@@ -14,7 +14,7 @@ public class Computadora : MonoBehaviour, IInteractable
 
     [Header("Configuración de espera de zombies")]
     public float tiempoEsperaZombies = 6f; // Tiempo que los zombies esperan al llegar
-    public float distanciaParada = 1f; // Distancia mínima a la computadora
+    public float distanciaParada = 1.5f;   // Distancia mínima a la computadora
 
     void Start()
     {
@@ -47,23 +47,31 @@ public class Computadora : MonoBehaviour, IInteractable
                 Zombie scriptZombie = z.GetComponent<Zombie>();
                 if (scriptZombie != null)
                 {
+                    // Asignamos los puntos de patrulla de la compu
+                    scriptZombie.AsignarPuntosCompu(puntosPatrullaCompu);
+
+                    // Lanzamos la corrutina para moverlo
                     StartCoroutine(EnviarZombie(scriptZombie));
                 }
             }
         }
     }
 
-   
-private IEnumerator EnviarZombie(Zombie z)
-{
-    // Mandar zombie hacia la compu
-    z.IrAHaciaSonido(transform.position);
-
-    // Esperar a que llegue
-    while (Vector3.Distance(z.transform.position, transform.position) > 1.5f)
+    private IEnumerator EnviarZombie(Zombie z)
     {
-        yield return null;
-    }
-}
+        // Mandar zombie hacia la compu
+        z.IrAHaciaSonido(transform.position);
 
+        // Esperar a que llegue cerca de la compu
+        while (Vector3.Distance(z.transform.position, transform.position) > distanciaParada)
+        {
+            yield return null;
+        }
+
+        // Esperar unos segundos en el lugar
+        yield return new WaitForSeconds(tiempoEsperaZombies);
+
+        // Luego vuelve a su patrulla normal
+        z.VolverAPatrullar();
+    }
 }
