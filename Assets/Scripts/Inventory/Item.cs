@@ -7,5 +7,6 @@ public class Item
     public string itemName;
     public Sprite icon;
     public bool isStackable;
+    public bool isConsumible;
 
 }

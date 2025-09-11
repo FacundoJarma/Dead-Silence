@@ -17,10 +17,13 @@ public class InventoryManager : MonoBehaviour
     public event InventoryFocusChanged onInventoryFocusChanged;
 
     AlertManager alertManager;
+    HealthManager playerHealthManager;
 
     void Start()
     {
         alertManager = FindObjectOfType<AlertManager>();
+        playerHealthManager = FindObjectOfType<HealthManager>();
+
         onInventoryFocusChanged?.Invoke(0);
     }
 
@@ -35,7 +38,7 @@ public class InventoryManager : MonoBehaviour
 
         // Wrap-around (vuelve al inicio o al final)
         if (actualFocus < 0)
-            actualFocus = inventory.Count - 1;
+            actualFocus = inventory.Count != 0 ? inventory.Count - 1 : 0;
         else if (actualFocus >= inventory.Count)
             actualFocus = 0;
 
@@ -44,6 +47,26 @@ public class InventoryManager : MonoBehaviour
             onInventoryFocusChanged?.Invoke(actualFocus);
             prevFocus = actualFocus;
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Item selectedItem = inventory[actualFocus];
+            switch (selectedItem.itemName)
+            {
+                case "Water Bottle":
+                    playerHealthManager.Heal(10);
+                    break;
+            }
+            if (selectedItem.isConsumible)
+            {
+                inventory.RemoveAt(actualFocus);
+                onInventoryChanged?.Invoke();
+
+                actualFocus = 0;
+                onInventoryFocusChanged?.Invoke(actualFocus);
+            }
+        }
+
     }
 
     public void AddItem(Item i)

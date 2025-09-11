@@ -34,6 +34,9 @@ public class HealthManager : MonoBehaviour
         currentHealth = Mathf.Min(currentHealth, maxHealth);
 
         onHealthChanged?.Invoke(currentHealth);
+
+        FindObjectOfType<AlertManager>().DisplaySuccessAlert("Has sanado +" + amount + ".");
+
     }
 
     void Die()
