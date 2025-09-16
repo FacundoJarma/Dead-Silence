@@ -1,65 +1,72 @@
 fileFormatVersion: 2
-guid: 787e693f64e8afa42ab309a336ab4ff0
+guid: 959245c75e30e6a40b38a3296fdb4023
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cube
-    100002: //RootNode
+    100000: //RootNode
+    100002: Pared_01
     100004: Pared_02
-    100006: Pared_02.001
-    100008: Pared_03
-    100010: Pared_03.001
-    100012: Piso
-    100014: Techo
-    100016: ventanas
-    100018: ventanas.001
-    400000: Cube
-    400002: //RootNode
+    100006: Pared_03
+    100008: Pared_04
+    100010: Techo
+    100012: Techo.001
+    400000: //RootNode
+    400002: Pared_01
     400004: Pared_02
-    400006: Pared_02.001
-    400008: Pared_03
-    400010: Pared_03.001
-    400012: Piso
-    400014: Techo
-    400016: ventanas
-    400018: ventanas.001
+    400006: Pared_03
+    400008: Pared_04
+    400010: Techo
+    400012: Techo.001
     2100000: Material
-    2100002: Pared
-    2100004: Techo
-    2100006: Ventana
-    2100008: Madera
-    2100010: Pared.001
-    2100012: Pared.002
-    2100014: Material.002
-    2300000: Cube
+    2100002: Material.001
+    2100004: Pared_02
+    2100006: Pared_01
+    2100008: Material.002
+    2100010: No Name
+    2300000: Pared_01
     2300002: Pared_02
-    2300004: Pared_02.001
-    2300006: Pared_03
-    2300008: Pared_03.001
-    2300010: Piso
-    2300012: Techo
-    2300014: ventanas
-    2300016: ventanas.001
-    3300000: Cube
+    2300004: Pared_03
+    2300006: Pared_04
+    2300008: Techo
+    2300010: Techo.001
+    3300000: Pared_01
     3300002: Pared_02
-    3300004: Pared_02.001
-    3300006: Pared_03
-    3300008: Pared_03.001
-    3300010: Piso
-    3300012: Techo
-    3300014: ventanas
-    3300016: ventanas.001
-    4300000: Piso
+    3300004: Pared_03
+    3300006: Pared_04
+    3300008: Techo
+    3300010: Techo.001
+    4300000: Pared_04
     4300002: Pared_03
     4300004: Pared_02
-    4300006: Techo
-    4300008: ventanas
-    4300010: Pared_03.001
-    4300012: ventanas.001
-    4300014: Pared_02.001
-    4300016: Cube
-    2186277476908879412: ImportLogs
-  externalObjects: {}
+    4300006: Pared_01
+    4300008: Techo
+    4300010: Techo.001
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Pared_02
+    second: {fileID: 2800000, guid: 0c32ed3c6dbe5fa4da7765d449f50eb9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Pared_03
+    second: {fileID: 2800000, guid: c1fe6a53bcd5b5d42b3f22af9e6ece15, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TECHO
+    second: {fileID: 2800000, guid: 076b632e884f8be43a4efa8dfcbe109c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_04
+    second: {fileID: 2800000, guid: a9df8c3e1332c124e96e4fcc30bb2fa3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: textura pared
+    second: {fileID: 2800000, guid: eca071f04b52bd849baa44fd5946621f, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
