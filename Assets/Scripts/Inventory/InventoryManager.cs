@@ -78,6 +78,7 @@ public class InventoryManager : MonoBehaviour
         }
 
         inventory.Add(i);
+        FindObjectOfType<PlayerSFX>().PlaySound("PickUp");
         alertManager.DisplaySuccessAlert("Objeto añadido", 1f);
         onInventoryChanged?.Invoke();
     }
