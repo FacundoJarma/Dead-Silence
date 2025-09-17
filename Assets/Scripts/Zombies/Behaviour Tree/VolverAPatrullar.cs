@@ -6,7 +6,7 @@ public class VolverAPatrullar : NodoBT
 {
      private Zombie zombie;
 
-    public void VolverAPatrullarNodo(Zombie z)
+    public VolverAPatrullar(Zombie z)
     {
         zombie = z;
     }
