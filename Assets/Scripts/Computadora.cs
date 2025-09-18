@@ -45,33 +45,11 @@ public class Computadora : MonoBehaviour, IInteractable
             if (distancia <= radioSonido)
             {
                 Zombie scriptZombie = z.GetComponent<Zombie>();
-                if (scriptZombie != null)
-                {
-                    // Asignamos los puntos de patrulla de la compu
-                    scriptZombie.AsignarPuntosCompu(puntosPatrullaCompu);
+               
+                scriptZombie.IrAHaciaSonido(transform.position);
 
-                    // Lanzamos la corrutina para moverlo
-                    StartCoroutine(EnviarZombie(scriptZombie));
-                }
             }
         }
     }
 
-    private IEnumerator EnviarZombie(Zombie z)
-    {
-        // Mandar zombie hacia la compu
-        z.IrAHaciaSonido(transform.position);
-
-        // Esperar a que llegue cerca de la compu
-        while (Vector3.Distance(z.transform.position, transform.position) > distanciaParada)
-        {
-            yield return null;
-        }
-
-        // Esperar unos segundos en el lugar
-        yield return new WaitForSeconds(tiempoEsperaZombies);
-
-        // Luego vuelve a su patrulla normal
-        z.VolverAPatrullar();
-    }
 }

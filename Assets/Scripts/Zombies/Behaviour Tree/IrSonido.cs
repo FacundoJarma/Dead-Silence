@@ -1,19 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class IrSonido : NodoBT
+﻿public class IrSonido : NodoBT
 {
-  private Zombie zombie;
+    private Zombie zombie;
 
-    public IrSonido(Zombie zombie)
+    public IrSonido(Zombie z)
     {
-        this.zombie = zombie;
+        zombie = z;
     }
 
     public override bool Ejecutar()
     {
-        zombie.IrAlSonido();
-        return true;
+        if (zombie.HaySonidoPendiente())
+        {
+            zombie.IrAlSonido();
+            return true; // Sigue buscando el sonido, no termina aquí
+        }
+
+        return false; // Si no hay sonido pendiente, termina el nodo
     }
 }

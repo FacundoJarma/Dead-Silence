@@ -20,9 +20,14 @@ public class Zombie : MonoBehaviour
 
     // --- Sonido ---
     private Vector3 ultimoSonido;
-    private bool haySonido = false;
+    public bool haySonido = false;
     private float tiempoEsperaSonido = 2f;
     private float temporizadorSonido = 0f;
+
+    public float distanciaParadaSonido = 1.5f;      // cómo de cerca considerado "llegado" al sonido
+    private float prevStoppingDistance = 0f;
+    public float sampleRadius = 2f;                 // radio para samplear NavMesh alrededor del target
+    public float offsetRadio = 1.8f;  
 
     // --- Anti-bug / Anti-atascos ---
     private Vector3 ultimaPosicion;
@@ -40,23 +45,23 @@ public class Zombie : MonoBehaviour
 
         // Armamos el árbol:
         arbol = new Selector(
-            new Sequence(
-                new VerJugador(this),
-                new PerseguirJugador(this)
-            ),
-            new Sequence(
-                new HaySonido(this),
-                new IrSonido(this),
-                new EsperarSonido(this),
-                new VolverAPatrullar(this)
-            ),
-            new Patrullar(this)
-        );
+                new Sequence(
+                    new VerJugador(this),
+                    new PerseguirJugador(this)
+                ),
+                new Sequence(
+                    new HaySonido(this),
+                    new IrSonido(this), // Se mueve al sonido
+                    new EsperarSonido(this), // Espera en el sonido
+                    new VolverAPatrullar(this) // Después de esperar, vuelve a patrullar
+                ),
+                new Patrullar(this) // Patrullaje general
+            );
     }
 
     void Update()
     {
-        arbol.Ejecutar();
+        arbol.Ejecutar(); 
 
         // --- Anti-atascos ---
         if (Vector3.Distance(transform.position, ultimaPosicion) < 0.05f)
@@ -118,12 +123,28 @@ public class Zombie : MonoBehaviour
 
     public bool HaySonidoPendiente()
     {
+        Debug.Log("HaySonidoPendiente: " + haySonido);
+
         return haySonido;
     }
 
     public void IrAlSonido()
     {
+        Debug.Log("IrAlSonido");
         agente.SetDestination(ultimoSonido);
+    }
+
+    public bool EstaEnDestinoDelSonido()
+    {
+        if (!haySonido) return false;
+
+        if (agente.pathPending) return false;
+        Debug.Log("Esta en sonido: " + (!agente.hasPath && agente.remainingDistance <= agente.stoppingDistance + 0.5f)
+            || (agente.hasPath && agente.remainingDistance <= agente.stoppingDistance + 0.5f))
+
+
+        return (!agente.hasPath && agente.remainingDistance <= agente.stoppingDistance + 0.5f)
+            || (agente.hasPath && agente.remainingDistance <= agente.stoppingDistance + 0.5f);
     }
 
     public bool EsperarEnSonido()
@@ -134,12 +155,12 @@ public class Zombie : MonoBehaviour
         {
             haySonido = false;
             temporizadorSonido = 0f;
-            VolverAPatrullar();
-            return false; 
+            return false; // terminó la espera, pero NO llama VolverAPatrullar aquí
         }
 
         return true; // sigue esperando
     }
+
 
     public void TerminarSonido()
     {
@@ -149,29 +170,28 @@ public class Zombie : MonoBehaviour
 
     public void VolverAPatrullar()
     {
+        Debug.Log("VolverAPatrullar");
+
         Patrullar();
     }
 
-    // --- Llamado desde Computadora ---
     public void IrAHaciaSonido(Vector3 pos)
     {
         // Offset aleatorio para que no se amontonen todos
-        Vector3 offset = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
+        Vector3 offset = new Vector3(Random.Range(-0.5f, 0.5f), 0, Random.Range(-0.5f, 0.5f));
         ultimoSonido = pos + offset;
         haySonido = true;
+
+        if (agente != null)
+        {
+            agente.SetDestination(ultimoSonido);
+        }
     }
 
     // --- Patrullaje ---
     public void Patrullar()
     {
-        if (patrullaCompuActiva && puntosCompu.Length > 0)
-        {
-            if (!agente.hasPath)
-            {
-                IrAPuntoCompu();
-            }
-        }
-        else if (puntosPatrulla.Length > 0)
+       if (puntosPatrulla.Length > 0)
         {
             if (!agente.hasPath)
             {
@@ -179,16 +199,5 @@ public class Zombie : MonoBehaviour
                 agente.SetDestination(puntosPatrulla[indice].position);
             }
         }
-    }
-
-    private void IrAPuntoCompu()
-    {
-        int indice = Random.Range(0, puntosCompu.Length);
-        agente.SetDestination(puntosCompu[indice].position);
-    }
-
-    public void AsignarPuntosCompu(Transform[] puntos)
-    {
-        puntosCompu = puntos;
     }
 }
