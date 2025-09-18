@@ -140,7 +140,7 @@ public class Zombie : MonoBehaviour
 
         if (agente.pathPending) return false;
         Debug.Log("Esta en sonido: " + (!agente.hasPath && agente.remainingDistance <= agente.stoppingDistance + 0.5f)
-            || (agente.hasPath && agente.remainingDistance <= agente.stoppingDistance + 0.5f))
+            || (agente.hasPath && agente.remainingDistance <= agente.stoppingDistance + 0.5f));
 
 
         return (!agente.hasPath && agente.remainingDistance <= agente.stoppingDistance + 0.5f)
