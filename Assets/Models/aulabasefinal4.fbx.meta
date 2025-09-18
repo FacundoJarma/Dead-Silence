@@ -1,0 +1,239 @@
+fileFormatVersion: 2
+guid: f7bd984964d3f0c4593c7194c832f8f2
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Manija
+    100004: Pared_01
+    100006: Pared_02
+    100008: Pared_03
+    100010: Pared_04
+    100012: Piso
+    100014: Puerta.001
+    100016: Techo
+    100018: Ventana_Puerta
+    100020: ventanas
+    100022: ventanas.001
+    400000: //RootNode
+    400002: Manija
+    400004: Pared_01
+    400006: Pared_02
+    400008: Pared_03
+    400010: Pared_04
+    400012: Piso
+    400014: Puerta.001
+    400016: Techo
+    400018: Ventana_Puerta
+    400020: ventanas
+    400022: ventanas.001
+    2100000: Pared_03
+    2100002: Pared_02
+    2100004: Techo
+    2100006: Material.001
+    2100008: Pared_01
+    2100010: Ventana
+    2100012: VentanaPuerta
+    2100014: Madera
+    2100016: Puerta
+    2100018: Pared_04
+    2300000: Manija
+    2300002: Pared_01
+    2300004: Pared_02
+    2300006: Pared_03
+    2300008: Pared_04
+    2300010: Piso
+    2300012: Puerta.001
+    2300014: Techo
+    2300016: Ventana_Puerta
+    2300018: ventanas
+    2300020: ventanas.001
+    3300000: Manija
+    3300002: Pared_01
+    3300004: Pared_02
+    3300006: Pared_03
+    3300008: Pared_04
+    3300010: Piso
+    3300012: Puerta.001
+    3300014: Techo
+    3300016: Ventana_Puerta
+    3300018: ventanas
+    3300020: ventanas.001
+    4300000: Pared_03
+    4300002: Pared_02
+    4300004: Techo
+    4300006: Piso
+    4300008: Pared_01
+    4300010: ventanas
+    4300012: ventanas.001
+    4300014: Puerta.001
+    4300016: Ventana_Puerta
+    4300018: Manija
+    4300020: Pared_04
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Madera
+    second: {fileID: 2100000, guid: 24cb4b41d05178e44a2a9bcaf9ca5171, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: a7f1161780d7e4c409dbc8fdc17ef329, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pared_01
+    second: {fileID: 2100000, guid: 0c05fc2e4a9e21b469aaab5bab4b3767, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pared_02
+    second: {fileID: 2100000, guid: 552d4469730ecb74f9b57c342b0d8327, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pared_03
+    second: {fileID: 2100000, guid: e096cfbeecebca546bfb633d03d61517, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pared_04
+    second: {fileID: 2100000, guid: e280626e7cd66f1458163f040629d7a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Puerta
+    second: {fileID: 2100000, guid: 0066bf41a67828b419ac4e0684b41034, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Techo
+    second: {fileID: 2100000, guid: f9900656ca982404a953a9f3dbfb57db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ventana
+    second: {fileID: 2100000, guid: 2ca973ddcf82d6f478410afcb141caee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VentanaPuerta
+    second: {fileID: 2100000, guid: 4934d0f1bfb02c945bdc9df3772bafdb, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Pared_02
+    second: {fileID: 2800000, guid: a449ad5451b14ac4698844e9d9145b9a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Pared_03
+    second: {fileID: 2800000, guid: f350adf6fe3c8354099f7de1ef90a754, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Planks_Diff
+    second: {fileID: 2800000, guid: 48d0d1ae517823649a0d76461a9f81c6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TECHO
+    second: {fileID: 2800000, guid: cc0fed4ce4491064b82131af21926b1e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: images
+    second: {fileID: 2800000, guid: e84935c8a1bb9374486031cf16121a73, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_04
+    second: {fileID: 2800000, guid: ef808d707ed8e894bb336c615de2b364, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
