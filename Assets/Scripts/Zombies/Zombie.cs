@@ -8,10 +8,6 @@ public class Zombie : MonoBehaviour
     private NavMeshAgent agente;
     private NodoBT arbol;
 
-    [Header("Patrulla Compu")]
-    public Transform[] puntosCompu; 
-    private bool patrullaCompuActiva = false;
-
     [Header("Jugador")]
     public GameObject jugador;
 
@@ -21,7 +17,7 @@ public class Zombie : MonoBehaviour
     // --- Sonido ---
     private Vector3 ultimoSonido;
     public bool haySonido = false;
-    private float tiempoEsperaSonido = 2f;
+    public float tiempoEsperaSonido = 2f;
     private float temporizadorSonido = 0f;
 
     // --- Anti-bug / Anti-atascos ---
@@ -144,24 +140,31 @@ public class Zombie : MonoBehaviour
     public bool EsperarEnSonido()
     {
         temporizadorSonido += Time.deltaTime;
-        Debug.Log("Esperando..." + temporizadorSonido + " " + tiempoEsperaSonido);
 
         if (temporizadorSonido >= tiempoEsperaSonido)
         {
             haySonido = false;
             temporizadorSonido = 0f;
+            
             return true; 
+
         }
 
         return false;
     }
 
-
     public void TerminarSonido()
     {
         haySonido = false;
         temporizadorSonido = 0f;
+
+        if (agente != null)
+        {
+            agente.ResetPath();
+
+        }
     }
+
 
     public void IrAHaciaSonido(Vector3 pos)
     {
@@ -176,18 +179,23 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    // --- Patrullaje ---
     public void Patrullar()
     {
-        Debug.Log("Patrullando...");
-        if (puntosPatrulla.Length > 0)
+        if (puntosPatrulla.Length == 0) return;
+
+        bool necesitaNuevoDestino = false;
+
+        if (!agente.hasPath && !agente.pathPending)
+            necesitaNuevoDestino = true;
+        else if (!agente.pathPending && agente.remainingDistance <= agente.stoppingDistance + 0.1f)
+            necesitaNuevoDestino = true;
+
+        if (necesitaNuevoDestino)
         {
-            if (!agente.hasPath)
-            {
-                int indice = Random.Range(0, puntosPatrulla.Length);
-                agente.SetDestination(puntosPatrulla[indice].position);
-            }
+            int indice = Random.Range(0, puntosPatrulla.Length);
+            agente.SetDestination(puntosPatrulla[indice].position);
         }
+
     }
 
     void OnDrawGizmos()
