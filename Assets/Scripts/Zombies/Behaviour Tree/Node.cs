@@ -5,11 +5,11 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     public enum NodeState
-{
-    Running,
-    Success,
-    Failure
-}
+    {
+        Running,
+        Success,
+        Failure
+    }
 
 public abstract class Node
 {

@@ -24,11 +24,6 @@ public class Zombie : MonoBehaviour
     private float tiempoEsperaSonido = 2f;
     private float temporizadorSonido = 0f;
 
-    public float distanciaParadaSonido = 1.5f;      // cómo de cerca considerado "llegado" al sonido
-    private float prevStoppingDistance = 0f;
-    public float sampleRadius = 2f;                 // radio para samplear NavMesh alrededor del target
-    public float offsetRadio = 1.8f;  
-
     // --- Anti-bug / Anti-atascos ---
     private Vector3 ultimaPosicion;
     private float tiempoAtascado = 0f;
@@ -52,8 +47,7 @@ public class Zombie : MonoBehaviour
                 new Sequence(
                     new HaySonido(this),
                     new IrSonido(this), // Se mueve al sonido
-                    new EsperarSonido(this), // Espera en el sonido
-                    new VolverAPatrullar(this) // Después de esperar, vuelve a patrullar
+                    new EsperarSonido(this) // Espera en el sonido
                 ),
                 new Patrullar(this) // Patrullaje general
             );
@@ -139,9 +133,9 @@ public class Zombie : MonoBehaviour
         if (!haySonido) return false;
 
         if (agente.pathPending) return false;
-        Debug.Log("Esta en sonido: " + (!agente.hasPath && agente.remainingDistance <= agente.stoppingDistance + 0.5f)
-            || (agente.hasPath && agente.remainingDistance <= agente.stoppingDistance + 0.5f));
-
+        bool arrived = (!agente.hasPath && agente.remainingDistance <= agente.stoppingDistance + 0.5f)
+            || (agente.hasPath && agente.remainingDistance <= agente.stoppingDistance + 0.5f);
+        Debug.Log("Esta en sonido: " + arrived);
 
         return (!agente.hasPath && agente.remainingDistance <= agente.stoppingDistance + 0.5f)
             || (agente.hasPath && agente.remainingDistance <= agente.stoppingDistance + 0.5f);
@@ -150,15 +144,16 @@ public class Zombie : MonoBehaviour
     public bool EsperarEnSonido()
     {
         temporizadorSonido += Time.deltaTime;
+        Debug.Log("Esperando..." + temporizadorSonido + " " + tiempoEsperaSonido);
 
         if (temporizadorSonido >= tiempoEsperaSonido)
         {
             haySonido = false;
             temporizadorSonido = 0f;
-            return false; // terminó la espera, pero NO llama VolverAPatrullar aquí
+            return true; 
         }
 
-        return true; // sigue esperando
+        return false;
     }
 
 
@@ -166,13 +161,6 @@ public class Zombie : MonoBehaviour
     {
         haySonido = false;
         temporizadorSonido = 0f;
-    }
-
-    public void VolverAPatrullar()
-    {
-        Debug.Log("VolverAPatrullar");
-
-        Patrullar();
     }
 
     public void IrAHaciaSonido(Vector3 pos)
@@ -191,12 +179,28 @@ public class Zombie : MonoBehaviour
     // --- Patrullaje ---
     public void Patrullar()
     {
-       if (puntosPatrulla.Length > 0)
+        Debug.Log("Patrullando...");
+        if (puntosPatrulla.Length > 0)
         {
             if (!agente.hasPath)
             {
                 int indice = Random.Range(0, puntosPatrulla.Length);
                 agente.SetDestination(puntosPatrulla[indice].position);
+            }
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        if (agente != null && agente.hasPath)
+        {
+            Vector3[] corners = agente.path.corners;
+            Gizmos.color = Color.green;
+
+            for (int i = 0; i < corners.Length - 1; i++)
+            {
+                Gizmos.DrawLine(corners[i], corners[i + 1]);
+                Gizmos.DrawSphere(corners[i], 0.1f);
             }
         }
     }

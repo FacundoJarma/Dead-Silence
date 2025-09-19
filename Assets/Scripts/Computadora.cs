@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class Computadora : MonoBehaviour, IInteractable
 {
-    [Header("Puntos de patrulla de la compu")]
-    public Transform[] puntosPatrullaCompu; 
     
     [Header("Configuración de sonido")]
     public float radioSonido = 10f; // Radio en el que los zombies escuchan
     public AudioClip sonidoComputadora; // Sonido que se reproduce al interactuar
     private AudioSource audioSource;
-
-    [Header("Configuración de espera de zombies")]
-    public float tiempoEsperaZombies = 6f; // Tiempo que los zombies esperan al llegar
-    public float distanciaParada = 1.5f;   // Distancia mínima a la computadora
 
     void Start()
     {

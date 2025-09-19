@@ -12,9 +12,8 @@
         if (zombie.HaySonidoPendiente())
         {
             zombie.IrAlSonido();
-            return true; // Sigue buscando el sonido, no termina aquí
+            return zombie.EstaEnDestinoDelSonido(); 
         }
-
-        return false; // Si no hay sonido pendiente, termina el nodo
+        return false; // no hay sonido = falla
     }
 }
