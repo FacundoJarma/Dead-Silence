@@ -1,0 +1,256 @@
+fileFormatVersion: 2
+guid: f96c10e581f9b24459972316c77838a0
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: manija
+    100004: Pared_01
+    100006: Pared_02
+    100008: Pared_02.001
+    100010: Pared_03
+    100012: Piso
+    100014: Puerta
+    100016: Techo
+    100018: Ventana_Puerta
+    100020: ventanas
+    100022: ventanas.001
+    400000: //RootNode
+    400002: manija
+    400004: Pared_01
+    400006: Pared_02
+    400008: Pared_02.001
+    400010: Pared_03
+    400012: Piso
+    400014: Puerta
+    400016: Techo
+    400018: Ventana_Puerta
+    400020: ventanas
+    400022: ventanas.001
+    2100000: Material
+    2100002: Pared_02
+    2100004: Material.003
+    2100006: No Name
+    2100008: Material.004
+    2100010: Ventana
+    2100012: Material.005
+    2100014: Madera
+    2100016: Pared
+    2100018: Material.001
+    2100020: Ventana.001
+    2100022: Pared_02.001
+    2300000: manija
+    2300002: Pared_01
+    2300004: Pared_02
+    2300006: Pared_02.001
+    2300008: Pared_03
+    2300010: Piso
+    2300012: Puerta
+    2300014: Techo
+    2300016: Ventana_Puerta
+    2300018: ventanas
+    2300020: ventanas.001
+    3300000: manija
+    3300002: Pared_01
+    3300004: Pared_02
+    3300006: Pared_02.001
+    3300008: Pared_03
+    3300010: Piso
+    3300012: Puerta
+    3300014: Techo
+    3300016: Ventana_Puerta
+    3300018: ventanas
+    3300020: ventanas.001
+    4300000: Pared_03
+    4300002: Pared_02
+    4300004: Techo
+    4300006: Piso
+    4300008: Pared_01
+    4300010: ventanas
+    4300012: ventanas.001
+    4300014: manija
+    4300016: Ventana_Puerta
+    4300018: Puerta
+    4300020: Pared_02.001
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Madera
+    second: {fileID: 2100000, guid: 19f659041618c214ea0b42521fc961c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 3e2b485ea47763e4f91c103b1ceb8196, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: faaf0f717a1c0ce41be266beccc5c7da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 0997a9428dd44964a8b21ecd449af13c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 602c97182ec8d99448234d772b524556, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: 1df6b263df4d25a45bffb4b439289fd3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: eda7b6a08fd6809428412ef2a238ccc3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pared
+    second: {fileID: 2100000, guid: fa841acb9beda35468fe6b03d28dcccc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pared_02
+    second: {fileID: 2100000, guid: 0aff714028445ad45b40554c287f65bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pared_02.001
+    second: {fileID: 2100000, guid: d9e6be078c2d94540862a089fb50a55b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ventana
+    second: {fileID: 2100000, guid: 92f84edb75688c749a0e1ef11d0b7760, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ventana.001
+    second: {fileID: 2100000, guid: 45625a456932fb347a63f280e5a960fc, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Pared_02
+    second: {fileID: 2800000, guid: ba5ff93c735fab3448ad712549556b87, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Pared_03
+    second: {fileID: 2800000, guid: 00a6438e31e985249828626989a3ec8a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Planks_Diff
+    second: {fileID: 2800000, guid: e37265b942f496b489fc2cce2816df95, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TECHO
+    second: {fileID: 2800000, guid: 147b447a9fd95934a8a75c95ec0834a4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TexturaPared2
+    second: {fileID: 2800000, guid: 72aa0146f7f94444fb324e0d60ab4795, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: images
+    second: {fileID: 2800000, guid: cb69a5d794b08cf4485f342fb991d7c0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared_04
+    second: {fileID: 2800000, guid: a8ea2f414b1f49e4889cabef5f1eaf2e, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
