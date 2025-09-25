@@ -28,7 +28,7 @@ public class InteractionController : MonoBehaviour
                 {
                     ClearOutline(); 
                     interactableObject = hit.collider.gameObject;
-
+                    Debug.Log(interactableObject);
                     // 🔹 Buscar el hijo con etiqueta "Model"
                     Transform model = null;
                     foreach (Transform child in interactableObject.GetComponentsInChildren<Transform>())
@@ -39,7 +39,6 @@ public class InteractionController : MonoBehaviour
                             break;
                         }
                     }
-                    Debug.Log(model);
                     if (model != null)
                     {
                         interactableRenderer = model.GetComponent<Renderer>();
