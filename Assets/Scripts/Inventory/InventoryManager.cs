@@ -18,11 +18,13 @@ public class InventoryManager : MonoBehaviour
 
     AlertManager alertManager;
     HealthManager playerHealthManager;
+    ThrowObject throwObject;
 
     void Start()
     {
         alertManager = FindObjectOfType<AlertManager>();
         playerHealthManager = FindObjectOfType<HealthManager>();
+        throwObject = FindObjectOfType<ThrowObject>();
 
         onInventoryFocusChanged?.Invoke(0);
     }
@@ -55,6 +57,9 @@ public class InventoryManager : MonoBehaviour
             {
                 case "Water Bottle":
                     playerHealthManager.Heal(10);
+                    break;
+                case "Mouse":
+                    throwObject.Throw("Mouse");
                     break;
             }
             if (selectedItem.isConsumible)
