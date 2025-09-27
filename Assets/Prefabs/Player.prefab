@@ -636,7 +636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2447460810650620397}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8760418876648068748}
@@ -876,12 +876,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81a75cbbb3364444935eadb56570d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 4
-  runningSpeed: 8
-  crouchingSpeed: 3
+  walkingSpeed: 6
+  runningSpeed: 10
+  crouchingSpeed: 4
   maxStamina: 100
-  normalHeight: 2
-  crouchingHeight: 1.25
+  normalHeight: 4
+  crouchingHeight: 2.5
   jumpSpeed: 8
   gravity: 20
   playerCamera: {fileID: 8760418877334754567}
