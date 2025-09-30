@@ -19,13 +19,14 @@ public class InventoryManager : MonoBehaviour
     AlertManager alertManager;
     HealthManager playerHealthManager;
     ThrowObject throwObject;
+    MapManager mapManager;
 
     void Start()
     {
         alertManager = FindObjectOfType<AlertManager>();
         playerHealthManager = FindObjectOfType<HealthManager>();
         throwObject = FindObjectOfType<ThrowObject>();
-
+        mapManager = FindObjectOfType<MapManager>();
         onInventoryFocusChanged?.Invoke(0);
     }
 
@@ -61,6 +62,10 @@ public class InventoryManager : MonoBehaviour
                 case "Mouse":
                     throwObject.Throw("Mouse");
                     break;
+                case "EvacuationMap":
+                    mapManager.openOrClose();
+                    break;
+
             }
             if (selectedItem.isConsumible)
             {
