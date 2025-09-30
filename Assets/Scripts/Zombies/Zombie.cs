@@ -74,7 +74,8 @@ public class Zombie : MonoBehaviour
         if (jugador != null)
         {
             Vector3 direccion = (jugador.transform.position - transform.position).normalized * 10f;
-            Debug.DrawRay(transform.position + Vector3.up, direccion, Color.red);
+            Vector3 origenRayo = transform.position + Vector3.up * 3f;
+            Debug.DrawRay(origenRayo, direccion, Color.red);
         }
     }
 
@@ -87,7 +88,6 @@ public class Zombie : MonoBehaviour
     }
 
     // --------- FUNCIONES PARA LOS NODOS -----------
-
     public bool PuedeVerAlJugador()
     {
         if (jugador == null) return false;
@@ -97,15 +97,28 @@ public class Zombie : MonoBehaviour
 
         if (angulo < 90f) // visión en cono
         {
-            if (Physics.Raycast(transform.position + Vector3.up, direccion, out RaycastHit hit, 10f))
+            // Alturas desde las que se lanzarán los rayos
+            float[] alturas = { 1.5f, 3f };
+
+            foreach (float altura in alturas)
             {
-                if (hit.collider.CompareTag("Player"))
-                    return true;
+                Vector3 origenRayo = transform.position + Vector3.up * altura;
+
+                // Dibujo para depuración
+                Debug.DrawRay(origenRayo, direccion * 10f, Color.red);
+
+                if (Physics.Raycast(origenRayo, direccion, out RaycastHit hit, 10f))
+                {
+                    if (hit.collider.CompareTag("Player"))
+                    {
+                        return true;
+                    }
+                }
             }
         }
+
         return false;
     }
-
     public void PerseguirJugador()
     {
         agente.SetDestination(jugador.transform.position);
@@ -211,5 +224,10 @@ public class Zombie : MonoBehaviour
                 Gizmos.DrawSphere(corners[i], 0.1f);
             }
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.collider.name);
     }
 }
