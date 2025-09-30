@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1105255204864031056}
   - component: {fileID: 853769058}
   - component: {fileID: 208990300072368636}
+  - component: {fileID: 9110042205948114061}
   m_Layer: 0
   m_Name: Computadora
   m_TagString: Untagged
@@ -106,11 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8a6a3b0d96a794ea384e26d8e1f70d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntosPatrullaCompu: []
   radioSonido: 70
   sonidoComputadora: {fileID: 8300000, guid: 34afea1b9c1b5134781494a0742a8ba3, type: 3}
-  tiempoEsperaZombies: 4
-  distanciaParada: 3
 --- !u!82 &853769058
 AudioSource:
   m_ObjectHideFlags: 0
@@ -223,3 +221,16 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!65 &9110042205948114061
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105255204864031062}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}

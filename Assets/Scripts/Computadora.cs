@@ -36,6 +36,9 @@ public class Computadora : MonoBehaviour, IInteractable
         foreach (GameObject z in zombies)
         {
             float distancia = Vector3.Distance(z.transform.position, transform.position);
+            Debug.Log(z);
+            Debug.Log(distancia);
+
             if (distancia <= radioSonido)
             {
                 Zombie scriptZombie = z.GetComponent<Zombie>();
