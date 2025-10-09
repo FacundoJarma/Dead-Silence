@@ -555,6 +555,11 @@ PrefabInstance:
       propertyPath: jugador
       value: 
       objectReference: {fileID: 1745364776}
+    - target: {fileID: 3347100982564164552, guid: 48b2ceb9dd2acf148b49f1c914ed7b0e,
+        type: 3}
+      propertyPath: m_Speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3347100983008854042, guid: 48b2ceb9dd2acf148b49f1c914ed7b0e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1003,6 +1008,11 @@ PrefabInstance:
       propertyPath: jugador
       value: 
       objectReference: {fileID: 1745364776}
+    - target: {fileID: 3347100982564164552, guid: 48b2ceb9dd2acf148b49f1c914ed7b0e,
+        type: 3}
+      propertyPath: m_Speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3347100983008854042, guid: 48b2ceb9dd2acf148b49f1c914ed7b0e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1897,6 +1907,11 @@ PrefabInstance:
       propertyPath: jugador
       value: 
       objectReference: {fileID: 1745364776}
+    - target: {fileID: 3347100982564164552, guid: 48b2ceb9dd2acf148b49f1c914ed7b0e,
+        type: 3}
+      propertyPath: m_Speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3347100983008854042, guid: 48b2ceb9dd2acf148b49f1c914ed7b0e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2384,6 +2399,11 @@ PrefabInstance:
       propertyPath: jugador
       value: 
       objectReference: {fileID: 1745364776}
+    - target: {fileID: 3347100982564164552, guid: 48b2ceb9dd2acf148b49f1c914ed7b0e,
+        type: 3}
+      propertyPath: m_Speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3347100983008854042, guid: 48b2ceb9dd2acf148b49f1c914ed7b0e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2530,6 +2550,11 @@ PrefabInstance:
       propertyPath: jugador
       value: 
       objectReference: {fileID: 1745364776}
+    - target: {fileID: 3347100982564164552, guid: 48b2ceb9dd2acf148b49f1c914ed7b0e,
+        type: 3}
+      propertyPath: m_Speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3347100983008854042, guid: 48b2ceb9dd2acf148b49f1c914ed7b0e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2670,6 +2695,11 @@ PrefabInstance:
       propertyPath: jugador
       value: 
       objectReference: {fileID: 1745364776}
+    - target: {fileID: 3347100982564164552, guid: 48b2ceb9dd2acf148b49f1c914ed7b0e,
+        type: 3}
+      propertyPath: m_Speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3347100983008854042, guid: 48b2ceb9dd2acf148b49f1c914ed7b0e,
         type: 3}
       propertyPath: m_LocalPosition.x

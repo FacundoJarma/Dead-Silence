@@ -137,7 +137,7 @@ public class GeneradorProceduralHibrido : MonoBehaviour
                 // ⚠️ Solo se puede pasar si es vacío o pasillo, nunca sobre aulas
                 if (grid[next.x, next.y] == 1) continue;
 
-                float newCost = costSoFar[current] + ((grid[next.x, next.y] == 0) ? 10f : 1f);
+                float newCost = costSoFar[current] + ((grid[next.x, next.y] == 0) ? 5f : 1f);
                 float priority = newCost + UnityEngine.Random.Range(0, 5f);
 
                 if (!costSoFar.ContainsKey(next) || newCost < costSoFar[next])
