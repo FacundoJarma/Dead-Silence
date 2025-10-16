@@ -1,0 +1,245 @@
+fileFormatVersion: 2
+guid: d70267109a2b1f4469188072f374d70d
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Cube
+    100002: Cube.001
+    100004: Cube.002
+    100006: Cube.003
+    100008: Cube.004
+    100010: Pared_01
+    100012: Pared_02
+    100014: Pared_03
+    100016: Pared_04
+    100018: Pared_05
+    100020: Pared_07
+    100022: //RootNode
+    100024: Piso
+    100026: Techo
+    400000: Cube
+    400002: Cube.001
+    400004: Cube.002
+    400006: Cube.003
+    400008: Cube.004
+    400010: Pared_01
+    400012: Pared_02
+    400014: Pared_03
+    400016: Pared_04
+    400018: Pared_05
+    400020: Pared_07
+    400022: //RootNode
+    400024: Piso
+    400026: Techo
+    2100000: P2
+    2100002: P3
+    2100004: P5
+    2100006: P1
+    2100008: P4
+    2100010: Piso
+    2100012: P7
+    2100014: Techo
+    2100016: No Name
+    2100018: puerta
+    2100020: Material.002
+    2100022: Material.003
+    2300000: Cube
+    2300002: Cube.001
+    2300004: Cube.002
+    2300006: Cube.003
+    2300008: Cube.004
+    2300010: Pared_01
+    2300012: Pared_02
+    2300014: Pared_03
+    2300016: Pared_04
+    2300018: Pared_05
+    2300020: Pared_07
+    2300022: Piso
+    2300024: Techo
+    3300000: Cube
+    3300002: Cube.001
+    3300004: Cube.002
+    3300006: Cube.003
+    3300008: Cube.004
+    3300010: Pared_01
+    3300012: Pared_02
+    3300014: Pared_03
+    3300016: Pared_04
+    3300018: Pared_05
+    3300020: Pared_07
+    3300022: Piso
+    3300024: Techo
+    4300000: Pared_02
+    4300002: Pared_03
+    4300004: Pared_05
+    4300006: Pared_01
+    4300008: Pared_04
+    4300010: Piso
+    4300012: Pared_07
+    4300014: Techo
+    4300016: Cube
+    4300018: Cube.001
+    4300020: Cube.002
+    4300022: Cube.003
+    4300024: Cube.004
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 1e91428ddbb5d82418c6fc6f4af55916, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 6749d2f0f30c01c4ab70612aa458cb8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: cb48233e12a45554394f5096fe36ab79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P1
+    second: {fileID: 2100000, guid: 1936e9365b2cd9141919f1cb0d721cdf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P2
+    second: {fileID: 2100000, guid: 1fad4053f51013440a5d62f5544bf953, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P3
+    second: {fileID: 2100000, guid: d78b5ff9e64362c46acf468411803e6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P4
+    second: {fileID: 2100000, guid: 96eebb84d37fb1e45862099ad4523de7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P5
+    second: {fileID: 2100000, guid: 4d360fabafdb5514290bd791300e50d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P7
+    second: {fileID: 2100000, guid: 4eda83d31105c864a953548ab559d50c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Piso
+    second: {fileID: 2100000, guid: 3758e5ac5adeb7747923fb509509c1d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Techo
+    second: {fileID: 2100000, guid: 26d2ec1c9a63bfd419c333f8dad6791f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: puerta
+    second: {fileID: 2100000, guid: 56e031b12cbac5742a762daf66ce4e33, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TECHO
+    second: {fileID: 2800000, guid: 5e6646e31dad17c4891837eb2fffa5e5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: mitch-harris-cPZ21gvclO8-unsplash
+    second: {fileID: 2800000, guid: 327d45ae82d9e9a4e8894408db31ef93, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pared-de-la-luz-con-manchas-grises-sucios
+    second: {fileID: 2800000, guid: 816fcb592f14803438f3fe3af3564d3e, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
