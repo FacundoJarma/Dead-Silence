@@ -7,6 +7,7 @@ TagManager:
   - AlertManager
   - Zombie
   - Model
+  - SombrasDinamicas
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Obstacle
   - Enemy
   - Player
-  - 
+  - SombrasDinamicas
   - 
   - 
   - 

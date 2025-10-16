@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5302701215055695603}
   - component: {fileID: 5302701215055695605}
   - component: {fileID: 5302701215055695604}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pCylinder9 BG
   m_TagString: Model
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 5302701216108383512}
   - component: {fileID: 5302701216107089214}
   - component: {fileID: 5302701216106090494}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pCylinder9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f8373ec1a2e05f7438ab791b227ff928, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -165,9 +165,9 @@ GameObject:
   - component: {fileID: 5302701216108383516}
   - component: {fileID: 5302701216108351807}
   - component: {fileID: 5302701216108351805}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bottle
-  m_TagString: Untagged
+  m_TagString: SombrasDinamicas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 5302701216108383518}
   - component: {fileID: 5302701216107089212}
   - component: {fileID: 5302701216106090492}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pCylinder8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 5302701216563613374}
   - component: {fileID: 5302701216563613360}
   - component: {fileID: 5302701216563613375}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pCylinder9 BG
   m_TagString: Model
   m_Icon: {fileID: 0}

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3939639122711718129}
   - component: {fileID: 3939639122711718128}
   - component: {fileID: 208236882358894814}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Carro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!208 &208236882358894814
 NavMeshObstacle:
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 8795034171011756670}
   - component: {fileID: 8795034171013050974}
   - component: {fileID: 8795034171014049950}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: carro
   m_TagString: Model
   m_Icon: {fileID: 0}
