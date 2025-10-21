@@ -16,6 +16,7 @@ public class MovableObject : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        Debug.Log("Activado");
         if (canHold)
         {
             isHolding = true;
