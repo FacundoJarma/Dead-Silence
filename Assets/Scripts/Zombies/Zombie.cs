@@ -126,16 +126,25 @@ public class Zombie : MonoBehaviour
         Vector3 dir = (jugador.transform.position - transform.position).normalized;
         float angulo = Vector3.Angle(transform.forward, dir);
 
-        if (angulo < 90f)
-        {
-            Vector3 origen = transform.position + Vector3.up * 1.5f;
+        float[] alturas = { 1.5f, 3f };
 
-            if (Physics.Raycast(origen, dir, out RaycastHit hit, 10f))
+        Vector3 direccion = (jugador.transform.position - transform.position).normalized;
+
+        if (angulo < 90f) // visión en cono
+        {
+            foreach (float altura in alturas)
             {
-                if (hit.collider.CompareTag("Player"))
+                Vector3 origenRayo = transform.position + Vector3.up * altura;
+
+                // Dibujo para depuración
+                Debug.DrawRay(origenRayo, direccion * 10f, Color.red);
+
+                if (Physics.Raycast(origenRayo, direccion, out RaycastHit hit, 10f))
                 {
-                    persiguiendoJugador = true;
-                    return true;
+                    if (hit.collider.CompareTag("Player"))
+                    {
+                        return true;
+                    }
                 }
             }
         }
