@@ -39,6 +39,9 @@ public class ThrowObject : MonoBehaviour
 
         GameObject obj = Instantiate(prefab, throwPoint.position, throwPoint.rotation);
 
+        if (obj.GetComponent<DetectLanding>() == null)
+            obj.AddComponent<DetectLanding>();
+
         Rigidbody rb = obj.GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -46,4 +49,5 @@ public class ThrowObject : MonoBehaviour
             rb.AddForce(direction.normalized * throwForce, ForceMode.VelocityChange);
         }
     }
+
 }

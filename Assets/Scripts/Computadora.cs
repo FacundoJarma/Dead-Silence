@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Computadora : MonoBehaviour, IInteractable
 {
-
     [Header("Configuración de sonido")]
     [SerializeField] int cantidadDeZombiesLlamar = 4;
     public float radioSonido = 10f; // Radio en el que los zombies escuchan
     public AudioClip sonidoComputadora; // Sonido que se reproduce al interactuar
     private AudioSource audioSource;
 
+    [Header("Zombies asignados manualmente (opcional)")]
+    [SerializeField] List<GameObject> zombiesAsignados = new List<GameObject>();
+
     void Start()
     {
-        // Intentar obtener AudioSource
         audioSource = GetComponent<AudioSource>();
 
-        // Si no existe, lo creamos
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
@@ -26,33 +26,44 @@ public class Computadora : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        // Reproducir sonido
         if (sonidoComputadora != null)
         {
             audioSource.PlayOneShot(sonidoComputadora);
         }
 
-        GameObject[] zombies = GameObject.FindGameObjectsWithTag("Zombie");
+        List<GameObject> zombiesAUsar = new List<GameObject>();
 
-        List<GameObject> zombiesEnRango = new List<GameObject>();
-
-        foreach (GameObject z in zombies)
+        if (zombiesAsignados.Count > 0)
         {
-            float distancia = Vector3.Distance(z.transform.position, transform.position);
-            if (distancia <= radioSonido)
+            // Usar los zombies asignados manualmente
+            zombiesAUsar = zombiesAsignados;
+        }
+        else
+        {
+            // Buscar zombies en rango como antes
+            GameObject[] zombies = GameObject.FindGameObjectsWithTag("Zombie");
+            List<GameObject> zombiesEnRango = new List<GameObject>();
+
+            foreach (GameObject z in zombies)
             {
-                zombiesEnRango.Add(z);
+                float distancia = Vector3.Distance(z.transform.position, transform.position);
+                if (distancia <= radioSonido)
+                {
+                    zombiesEnRango.Add(z);
+                }
             }
+
+            zombiesEnRango.Sort((a, b) =>
+                Vector3.Distance(a.transform.position, transform.position)
+                .CompareTo(Vector3.Distance(b.transform.position, transform.position))
+            );
+
+            zombiesAUsar = zombiesEnRango;
         }
 
-        zombiesEnRango.Sort((a, b) =>
-            Vector3.Distance(a.transform.position, transform.position)
-            .CompareTo(Vector3.Distance(b.transform.position, transform.position))
-        );
-
-        for (int i = 0; i < Mathf.Min(cantidadDeZombiesLlamar, zombiesEnRango.Count); i++)
+        for (int i = 0; i < Mathf.Min(cantidadDeZombiesLlamar, zombiesAUsar.Count); i++)
         {
-            GameObject zombie = zombiesEnRango[i];
+            GameObject zombie = zombiesAUsar[i];
             Zombie scriptZombie = zombie.GetComponent<Zombie>();
 
             if (scriptZombie != null)
@@ -61,5 +72,4 @@ public class Computadora : MonoBehaviour, IInteractable
             }
         }
     }
-
 }
