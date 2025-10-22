@@ -874,7 +874,7 @@ GameObject:
   - component: {fileID: 1373716110447648462}
   m_Layer: 0
   m_Name: Zombie
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -904,7 +904,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5152727141966351165}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 92d2d3f9634c05544a53d734acff2105, type: 3}
+  m_Avatar: {fileID: 9000000, guid: b61be85b8ea260146a7e3ad35893a00b, type: 3}
   m_Controller: {fileID: 9100000, guid: cd1f21b56982dd448ba9e0e1d7e32608, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -961,7 +961,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5152727141966351165}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.5
+  m_Radius: 1
   m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50

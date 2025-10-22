@@ -52,6 +52,7 @@ public class DetectLanding : MonoBehaviour
 
         foreach (GameObject z in zombies)
         {
+            Debug.Log(z.name);
             float distancia = Vector3.Distance(z.transform.position, posicion);
             if (distancia <= radioAtraccion)
             {

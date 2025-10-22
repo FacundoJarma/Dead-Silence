@@ -147,6 +147,7 @@ public class Zombie : MonoBehaviour
     // -------- ATAQUE --------
     private IEnumerator Atacar()
     {
+        animator.SetInteger("AttackType", Random.Range(1, 3));
         atacando = true;
         puedeAtacar = false;
 
@@ -165,6 +166,8 @@ public class Zombie : MonoBehaviour
 
         puedeAtacar = true;
         atacando = false;
+        animator.SetInteger("AttackType", 0);
+
     }
 
     // -------- FUNCIONES PARA NODOS --------
