@@ -5,6 +5,8 @@ using TMPro;
 
 public class AlertManager : MonoBehaviour
 {
+    public GameObject Info;
+    public TextMeshProUGUI Info_TEXT;
     public GameObject Success;
     public TextMeshProUGUI Success_TEXT;
     public GameObject Danger;
@@ -28,5 +30,12 @@ public class AlertManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         alert.SetActive(false);
+    }
+
+    public void DisplayInfo(string text, float duration = 2f)
+    {
+        Info_TEXT.text = text;
+        Info.SetActive(true);
+        StartCoroutine(HideAlertAfterDelay(duration, Info));
     }
 }

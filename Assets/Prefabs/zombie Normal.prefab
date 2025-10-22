@@ -1700,7 +1700,7 @@ GameObject:
   - component: {fileID: 3347100982564164552}
   m_Layer: 0
   m_Name: zombie Normal
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1766,7 +1766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5457c88b7a619240ab45a252b143e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "da\xF1o": 10
+  "da\xF1o": 50
 --- !u!114 &3347100982564164547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1780,9 +1780,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugador: {fileID: 0}
+  distanciaPerdidaJugador: 15
+  distaciaVision: 20
+  "da\xF1o": 25
+  tiempoEntreAtaques: 1
+  rangoAtaque: 0.015
   puntosPatrulla: []
   haySonido: 0
   tiempoEsperaSonido: 2
+  mostrarRayos: 1
 --- !u!195 &3347100982564164552
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1793,7 +1799,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 6
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 10000
