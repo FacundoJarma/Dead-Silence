@@ -1,0 +1,189 @@
+fileFormatVersion: 2
+guid: 1f6bc38a9e4500f4a8175ec7bae9e1b9
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Pared1
+    100002: Pared2
+    100004: Pared3
+    100006: Pared4
+    100008: Piso
+    100010: //RootNode
+    100012: Techo
+    400000: Pared1
+    400002: Pared2
+    400004: Pared3
+    400006: Pared4
+    400008: Piso
+    400010: //RootNode
+    400012: Techo
+    2100000: Pared1
+    2100002: Pared2
+    2100004: Pared3
+    2100006: Pred4
+    2100008: Piso
+    2100010: Techo
+    2300000: Pared1
+    2300002: Pared2
+    2300004: Pared3
+    2300006: Pared4
+    2300008: Piso
+    2300010: Techo
+    3300000: Pared1
+    3300002: Pared2
+    3300004: Pared3
+    3300006: Pared4
+    3300008: Piso
+    3300010: Techo
+    4300000: Pared1
+    4300002: Pared2
+    4300004: Pared3
+    4300006: Pared4
+    4300008: Piso
+    4300010: Techo
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pared1
+    second: {fileID: 2100000, guid: 76be00e1577b29d4ba1ee86f36375742, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pared2
+    second: {fileID: 2100000, guid: 4890910db697a3d49969060ca2cab4b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pared3
+    second: {fileID: 2100000, guid: 459c7459d78bb184b9703a3797089ead, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Piso
+    second: {fileID: 2100000, guid: 8cee46dd9d8c0de4896fac42634907b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pred4
+    second: {fileID: 2100000, guid: 1d69469b6ab5f8743ac0900eae768eea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Techo
+    second: {fileID: 2100000, guid: b9797353b28e90d42b3c4f42e16be8a7, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Pared1.001
+    second: {fileID: 2800000, guid: 320b110ededea0e4e8d834c905922015, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Pared2
+    second: {fileID: 2800000, guid: e52f5ef2bb938b44b81432e9e36ebb00, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Pared3
+    second: {fileID: 2800000, guid: f90ad9bcbbd4c5049b56ea239f246d38, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Pared4
+    second: {fileID: 2800000, guid: f437fb0fb2d12b442819d73138c1b649, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TECHO
+    second: {fileID: 2800000, guid: e8ab08cbcaf3c0146ac8e08aa17c4ea2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: piso
+    second: {fileID: 2800000, guid: d81d92272213c714a9f0e41d32137716, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
