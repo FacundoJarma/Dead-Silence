@@ -38,9 +38,15 @@ public class Zombie : MonoBehaviour
     private Vector3 ultimaPosicion;
     private float tiempoAtascado = 0f;
 
+    private Animator animator;
+
 
     void Start()
     {
+
+        animator = GetComponent<Animator>();
+
+
         agente = GetComponent<NavMeshAgent>();
         agente.autoRepath = true;
         agente.autoBraking = false;
@@ -55,10 +61,20 @@ public class Zombie : MonoBehaviour
             new Sequence(new HaySonido(this), new IrSonido(this), new EsperarSonido(this)),
             new Patrullar(this)
         );
+
+
     }
 
     void Update()
     {
+
+        // Actualizar animación según la velocidad del agente
+        if (animator != null && agente != null)
+        {
+            float velocidadActual = agente.velocity.magnitude;
+            animator.SetFloat("Speed", velocidadActual);
+        }
+
         if (jugador == null)
         {
             arbol.Ejecutar();
