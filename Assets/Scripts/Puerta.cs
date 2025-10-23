@@ -49,7 +49,7 @@ public class Puerta : MonoBehaviour, IInteractable
     {
         Quaternion inicio = puerta.transform.rotation;
         float t = 0f;
-
+        Debug.Log(destino);
         while (t < 1f)
         {
             t += Time.deltaTime * velocidadApertura;
