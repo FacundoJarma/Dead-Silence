@@ -11,7 +11,7 @@ public class RandomSoundPlayer : MonoBehaviour
     public float maxDelay = 15f;
 
     [Header("Volumen")]
-    public float volume = 1f;
+    public float volume = 0.5f;
 
     private AudioSource audioSource;
 

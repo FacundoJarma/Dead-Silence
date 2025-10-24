@@ -18,6 +18,10 @@ public class Puerta : MonoBehaviour, IInteractable
         rotacionCerrada = puerta.transform.rotation;
         rotacionAbierta = Quaternion.Euler(transform.eulerAngles + new Vector3(0, anguloApertura, 0));
 
+        Debug.Log(gameObject.name);
+        Debug.Log(transform.eulerAngles);
+        
+
         obstaculo = GetComponent<NavMeshObstacle>();
         if (obstaculo == null)
         {
