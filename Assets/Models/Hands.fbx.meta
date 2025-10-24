@@ -9,12 +9,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Hands
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: glove
-    second: {fileID: 2800000, guid: ddad9d11e7c21e442ae7cb01fa0c0d10, type: 3}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
