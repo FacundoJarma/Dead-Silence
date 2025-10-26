@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Computadora : MonoBehaviour, IInteractable
+public class Computadora : MonoBehaviour
 {
     [Header("Configuración de sonido")]
     [SerializeField] int cantidadDeZombiesLlamar = 4;
@@ -12,6 +12,9 @@ public class Computadora : MonoBehaviour, IInteractable
 
     [Header("Zombies asignados manualmente (opcional)")]
     [SerializeField] List<GameObject> zombiesAsignados = new List<GameObject>();
+
+
+    [SerializeField] ConsoleManager consoleManager;
 
     void Start()
     {
@@ -24,7 +27,7 @@ public class Computadora : MonoBehaviour, IInteractable
         }
     }
 
-    public void Interact()
+    public void PlaySound()
     {
         if (sonidoComputadora != null)
         {
@@ -71,5 +74,7 @@ public class Computadora : MonoBehaviour, IInteractable
                 scriptZombie.IrAHaciaSonido(transform.position);
             }
         }
+
+        consoleManager.Close();
     }
 }
