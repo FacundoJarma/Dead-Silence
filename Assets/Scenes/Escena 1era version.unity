@@ -452,31 +452,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7884253003586711283, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7884253003787130863, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -161.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7884253003787130863, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7884253004240709266, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -161.20001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7884253004240709266, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -43.89999
-      objectReference: {fileID: 0}
     - target: {fileID: 7884253004728341656, guid: 41002e46a6036cb438cbe292227fc40a,
         type: 3}
       propertyPath: m_Name
@@ -582,61 +557,6 @@ PrefabInstance:
       propertyPath: allCameras.Array.data[3].cameraObject
       value: 
       objectReference: {fileID: 173506948}
-    - target: {fileID: 7884253004728341665, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: allCameras.Array.data[0].name
-      value: 'Pasillo #1_2'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7884253004728341665, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: allCameras.Array.data[1].name
-      value: 'Pasillo #1_1'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7884253004728341665, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: allCameras.Array.data[2].name
-      value: 'Sala Control #1_1'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7884253004728341665, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: allCameras.Array.data[3].name
-      value: 'Salon Principal #1_1'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7884253004803546221, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -161.20001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7884253004803546221, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 42.80001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7884253004869982175, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -143.50002
-      objectReference: {fileID: 0}
-    - target: {fileID: 7884253004869982175, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 108.80001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7884253005429839802, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7884253005429839803, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7884253005429839807, guid: 41002e46a6036cb438cbe292227fc40a,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41002e46a6036cb438cbe292227fc40a, type: 3}
 --- !u!1001 &122777602
