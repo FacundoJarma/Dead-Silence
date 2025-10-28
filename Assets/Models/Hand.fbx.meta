@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 01c9b79cd887f3843b7e0e2f999f7c98
+guid: 558ec794f8f46d2479c0406dff7020ca
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,8 +8,13 @@ ModelImporter:
     2100000: Glove
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Hands
-  externalObjects: {}
+    4300000: Icosphere.001
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: glove
+    second: {fileID: 2800000, guid: 2d855dda097bf9a46a500a570cee41ee, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
