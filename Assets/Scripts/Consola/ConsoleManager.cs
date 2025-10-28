@@ -17,7 +17,6 @@ public class ConsoleManager : MonoBehaviour, IInteractable
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             // (opcional) pausar el juego si querés que el jugador no se mueva mientras usa la consola
-            Time.timeScale = 0f;
         }
         else
         {
@@ -31,7 +30,6 @@ public class ConsoleManager : MonoBehaviour, IInteractable
         // Ocultar y bloquear el cursor nuevamente
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        Time.timeScale = 1f;
 
         camUi.HidePanel();
         consoleCanvas.SetActive(false);
