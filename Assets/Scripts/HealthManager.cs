@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,6 +42,9 @@ public class HealthManager : MonoBehaviour
 
     void Die()
     {
+        SceneManager.LoadScene(0);
+
+
         FindObjectOfType<AlertManager>().DisplayDangerAlert("Has muerto.");
     }
 }
