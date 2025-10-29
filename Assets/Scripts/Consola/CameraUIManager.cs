@@ -7,7 +7,7 @@ using TMPro;
 public class CameraUIManager : MonoBehaviour
 {
     [Header("Referencias")]
-    [SerializeField] private GameObject camerasPanel;
+    public GameObject camerasPanel;
     [SerializeField] private Transform player;
     [SerializeField] private List<RawImage> cameraSlots;
     [SerializeField] private List<TextMeshProUGUI> nameSlots;
@@ -83,7 +83,9 @@ public class CameraUIManager : MonoBehaviour
 
     public void Show4()
     {
+        Debug.Log("Camaras abiertas");
         camerasPanel.SetActive(true);
+        Debug.Log(camerasPanel.name);
     }
 
     public void HidePanel()
