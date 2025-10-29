@@ -8,6 +8,8 @@ public class Zombie : MonoBehaviour
     private NavMeshAgent agente;
     private NodoBT arbol;
 
+    public float[] alturas = { 1.5f, 3f };
+
     [Header("Jugador")]
     public GameObject jugador;
     private HealthManager healthManager;
@@ -186,7 +188,7 @@ public class Zombie : MonoBehaviour
         Vector3 dir = (jugador.transform.position - transform.position).normalized;
         float angulo = Vector3.Angle(transform.forward, dir);
 
-        float[] alturas = { 1.5f, 3f };
+        
 
         if (angulo < 90f)
         {
