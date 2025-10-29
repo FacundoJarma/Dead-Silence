@@ -20,6 +20,8 @@ public class InventoryManager : MonoBehaviour
     HealthManager playerHealthManager;
     ThrowObject throwObject;
     MapManager mapManager;
+    Lantern lantern;
+
 
     void Start()
     {
@@ -27,6 +29,8 @@ public class InventoryManager : MonoBehaviour
         playerHealthManager = FindObjectOfType<HealthManager>();
         throwObject = FindObjectOfType<ThrowObject>();
         mapManager = FindObjectOfType<MapManager>();
+        lantern = FindObjectOfType<Lantern>();
+
         onInventoryFocusChanged?.Invoke(0);
     }
 
@@ -47,6 +51,7 @@ public class InventoryManager : MonoBehaviour
 
         if (actualFocus != prevFocus)
         {
+            lantern.TurnOff();
             onInventoryFocusChanged?.Invoke(actualFocus);
             prevFocus = actualFocus;
         }
@@ -64,6 +69,9 @@ public class InventoryManager : MonoBehaviour
                     break;
                 case "EvacuationMap":
                     mapManager.openOrClose();
+                    break;
+                case "Lantern":
+                    lantern.Turn();
                     break;
 
             }

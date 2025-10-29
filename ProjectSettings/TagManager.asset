@@ -9,6 +9,7 @@ TagManager:
   - Model
   - SombrasDinamicas
   - Ground
+  - Light
   layers:
   - Default
   - TransparentFX

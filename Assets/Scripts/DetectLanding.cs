@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class DetectLanding : MonoBehaviour
 {
     [Header("Configuración de atracción")]
-    public float radioAtraccion = 30f;
+    public float radioAtraccion = 20f;
     public int maxZombies = 4;
 
     [Header("Efectos opcionales")]

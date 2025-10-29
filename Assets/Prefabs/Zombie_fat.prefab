@@ -195,7 +195,7 @@ Animator:
   m_GameObject: {fileID: 5973059519746777999}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8f271cf63135cb7418ac798e2afe3d82, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0619ec84b584c7e4997e93f10c611493, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -241,8 +241,8 @@ MonoBehaviour:
   jugador: {fileID: 0}
   distanciaPerdidaJugador: 15
   distaciaVision: 20
-  "da\xF1o": 25
-  tiempoEntreAtaques: 1
+  "da\xF1o": 75
+  tiempoEntreAtaques: 4
   rangoAtaque: 2
   puntosPatrulla:
   - {fileID: 0}
