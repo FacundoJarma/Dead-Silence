@@ -17,17 +17,17 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: button
-    second: {fileID: 2800000, guid: 1decb2074fdd1834fb5f0341bc39ede3, type: 3}
+    second: {fileID: 2800000, guid: 15b1793c8821b38498feed0aa73c29e5, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: glass
-    second: {fileID: 2800000, guid: ccc11edabb3f8e648b6e38e0123c82d3, type: 3}
+    second: {fileID: 2800000, guid: 20e61fdf8efb49941a7d70e690cf96a1, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: plastic
-    second: {fileID: 2800000, guid: ba9ac26d4fba06a4d94b7613d85911fb, type: 3}
+    second: {fileID: 2800000, guid: b15a99f663d9fe140af8ccf0d0bcb301, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
