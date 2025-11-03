@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4723998695848878154}
   - component: {fileID: 4723998695848878158}
   - component: {fileID: 1277872419}
-  - component: {fileID: 2624610353796412135}
+  - component: {fileID: 65418343346028090}
   m_Layer: 12
   m_Name: Mouse
   m_TagString: SombrasDinamicas
@@ -159,7 +159,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!65 &2624610353796412135
+--- !u!65 &65418343346028090
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,5 +170,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.20625305, y: 0.12831473, z: 0.5506668}
+  m_Center: {x: -0.21575165, y: -0.43584263, z: 0.16373825}
