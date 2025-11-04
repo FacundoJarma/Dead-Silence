@@ -19,7 +19,7 @@ public class InventoryManager : MonoBehaviour
     AlertManager alertManager;
     HealthManager playerHealthManager;
     ThrowObject throwObject;
-    MapManager mapManager;
+    NotesManager notesManager;
     Lantern lantern;
 
 
@@ -28,7 +28,7 @@ public class InventoryManager : MonoBehaviour
         alertManager = FindObjectOfType<AlertManager>();
         playerHealthManager = FindObjectOfType<HealthManager>();
         throwObject = FindObjectOfType<ThrowObject>();
-        mapManager = FindObjectOfType<MapManager>();
+        notesManager = FindObjectOfType<NotesManager>();
         lantern = FindObjectOfType<Lantern>();
 
         onInventoryFocusChanged?.Invoke(0);
@@ -67,8 +67,8 @@ public class InventoryManager : MonoBehaviour
                 case "Mouse":
                     throwObject.Throw("Mouse");
                     break;
-                case "EvacuationMap":
-                    mapManager.openOrClose();
+                case "Note#1":
+                    notesManager.openOrClose("Nota 1");
                     break;
                 case "Lantern":
                     lantern.Turn();

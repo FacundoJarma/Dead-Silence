@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
-        bool wantsToCrouch = Input.GetKey(KeyCode.C);
+        bool wantsToCrouch = Input.GetKey(KeyCode.LeftControl);
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
 
         if (isRunning)
