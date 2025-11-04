@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Zombie : MonoBehaviour
-    {
+{
     private NavMeshAgent agente;
     private NodoBT arbol;
 
@@ -19,16 +19,21 @@ public class Zombie : MonoBehaviour
     [SerializeField] float distaciaVision = 20f;
 
     [Header("Ataque")]
-    public int daño = 10;                     // Daño entero (coincide con HealthManager)
-    public float tiempoEntreAtaques = 1.2f;   // Tiempo entre golpes
-    public float rangoAtaque = 1.6f;          // Distancia para atacar
+    public int daño = 10;
+    public float tiempoEntreAtaques = 1.2f;
+    public float rangoAtaque = 1.6f;
     private bool puedeAtacar = true;
     private bool atacando = false;
 
     [Header("Patrulla")]
     public Transform[] puntosPatrulla;
 
-    [Header("Sonido")]
+    [Header("Sonido de comportamiento")]
+    public AudioSource audioSource;   // 🎵 Asignar un AudioSource en el inspector
+    public float minTiempoSonido = 5f;
+    public float maxTiempoSonido = 10f;
+
+    [Header("Sonido de eventos")]
     private Vector3 ultimoSonido;
     public bool haySonido = false;
     public float tiempoEsperaSonido = 2f;
@@ -39,16 +44,11 @@ public class Zombie : MonoBehaviour
 
     private Vector3 ultimaPosicion;
     private float tiempoAtascado = 0f;
-
     private Animator animator;
-
 
     void Start()
     {
-
         animator = GetComponent<Animator>();
-
-
         agente = GetComponent<NavMeshAgent>();
         agente.autoRepath = true;
         agente.autoBraking = false;
@@ -64,13 +64,14 @@ public class Zombie : MonoBehaviour
             new Patrullar(this)
         );
 
-
+        // 🔁 Iniciar la rutina de sonidos aleatorios
+        if (audioSource != null)
+            StartCoroutine(ReproducirSonidosAleatorios());
     }
 
     void Update()
     {
-
-        // Actualizar animación según la velocidad del agente
+        // Actualizar animación
         if (animator != null && agente != null)
         {
             float velocidadActual = agente.velocity.magnitude;
@@ -83,12 +84,10 @@ public class Zombie : MonoBehaviour
             return;
         }
 
-        // Si está persiguiendo al jugador
         if (persiguiendoJugador)
         {
             float distancia = Vector3.Distance(transform.position, jugador.transform.position);
 
-            // Si el jugador muere o se aleja mucho → volver a patrullar
             if (healthManager != null && (healthManager.currentHealth <= 0 || distancia > distanciaPerdidaJugador))
             {
                 persiguiendoJugador = false;
@@ -96,15 +95,12 @@ public class Zombie : MonoBehaviour
                 return;
             }
 
-            // Si está en rango de ataque
             if (distancia <= rangoAtaque)
             {
                 agente.isStopped = true;
                 agente.velocity = Vector3.zero;
                 if (puedeAtacar && !atacando)
-                {
                     StartCoroutine(Atacar());
-                }
             }
             else
             {
@@ -131,12 +127,28 @@ public class Zombie : MonoBehaviour
 
         ultimaPosicion = transform.position;
 
-        // --- Raycast de visión ---
+        // --- Debug Rayos ---
         if (mostrarRayos && jugador != null)
         {
             Vector3 direccion = (jugador.transform.position - transform.position).normalized * 10f;
             Vector3 origen = transform.position + Vector3.up * 1.5f;
             Debug.DrawRay(origen, direccion, Color.red);
+        }
+    }
+
+    // 🔊 Corrutina para emitir gruñidos aleatorios
+    private IEnumerator ReproducirSonidosAleatorios()
+    {
+        while (true)
+        {
+            float espera = Random.Range(minTiempoSonido, maxTiempoSonido);
+            yield return new WaitForSeconds(espera);
+
+            if (audioSource != null)
+            {
+
+                audioSource.Play();
+            }
         }
     }
 
@@ -146,30 +158,24 @@ public class Zombie : MonoBehaviour
             agente.SetDestination(agente.destination);
     }
 
-    // -------- ATAQUE --------
     private IEnumerator Atacar()
     {
         animator.SetInteger("AttackType", Random.Range(1, 3));
         atacando = true;
         puedeAtacar = false;
 
-        // Mirar hacia el jugador
         Vector3 direccion = (jugador.transform.position - transform.position).normalized;
         direccion.y = 0;
         transform.rotation = Quaternion.LookRotation(direccion);
 
-        // Aplicar daño
         if (healthManager != null)
-        {
             healthManager.TakeDamage(daño);
-        }
 
         yield return new WaitForSeconds(tiempoEntreAtaques);
 
         puedeAtacar = true;
         atacando = false;
         animator.SetInteger("AttackType", 0);
-
     }
 
     // -------- FUNCIONES PARA NODOS --------
