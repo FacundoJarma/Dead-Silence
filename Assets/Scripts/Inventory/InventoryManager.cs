@@ -68,7 +68,16 @@ public class InventoryManager : MonoBehaviour
                     throwObject.Throw("Mouse");
                     break;
                 case "Note#1":
-                    notesManager.openOrClose("Nota 1");
+                    notesManager.openOrClose(0);
+                    break;
+                case "Note#2":
+                    notesManager.openOrClose(1);
+                    break;
+                case "Note#3":
+                    notesManager.openOrClose(2);
+                    break;
+                case "Note#4":
+                    notesManager.openOrClose(3);
                     break;
                 case "Lantern":
                     lantern.Turn();
