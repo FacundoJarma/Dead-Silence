@@ -22,6 +22,14 @@ public class InventoryManager : MonoBehaviour
     NotesManager notesManager;
     Lantern lantern;
 
+    [Header("Prefabs para dropear")]
+    public GameObject waterBottlePrefab;
+    public GameObject mousePrefab;
+    public GameObject note1Prefab;
+    public GameObject note2Prefab;
+    public GameObject note3Prefab;
+    public GameObject note4Prefab;
+    public GameObject lanternPrefab;
 
     void Start()
     {
@@ -56,7 +64,8 @@ public class InventoryManager : MonoBehaviour
             prevFocus = actualFocus;
         }
 
-        if (Input.GetMouseButtonDown(1))
+        // Click derecho = usar ítem
+        if (Input.GetMouseButtonDown(1) && inventory.Count > 0)
         {
             Item selectedItem = inventory[actualFocus];
             switch (selectedItem.itemName)
@@ -82,8 +91,8 @@ public class InventoryManager : MonoBehaviour
                 case "Lantern":
                     lantern.Turn();
                     break;
-
             }
+
             if (selectedItem.isConsumible)
             {
                 inventory.RemoveAt(actualFocus);
@@ -94,6 +103,11 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
+        // Tecla G = tirar ítem
+        if (Input.GetKeyDown(KeyCode.Q) && inventory.Count > 0)
+        {
+            RemoveAndDropItem();
+        }
     }
 
     public void AddItem(Item i)
@@ -108,5 +122,61 @@ public class InventoryManager : MonoBehaviour
         FindObjectOfType<PlayerSFX>().PlaySound("PickUp");
         alertManager.DisplaySuccessAlert("Objeto añadido", 1f);
         onInventoryChanged?.Invoke();
+    }
+
+    // 🧩 NUEVA FUNCIÓN: Elimina el ítem seleccionado y lo tira al suelo
+    public void RemoveAndDropItem()
+    {
+        if (inventory.Count == 0) return;
+
+        Item selectedItem = inventory[actualFocus];
+        GameObject prefabToSpawn = null;
+
+        switch (selectedItem.itemName)
+        {
+            case "Water Bottle":
+                prefabToSpawn = waterBottlePrefab;
+                break;
+            case "Mouse":
+                prefabToSpawn = mousePrefab;
+                break;
+            case "Note#1":
+                prefabToSpawn = note1Prefab;
+                break;
+            case "Note#2":
+                prefabToSpawn = note2Prefab;
+                break;
+            case "Note#3":
+                prefabToSpawn = note3Prefab;
+                break;
+            case "Note#4":
+                prefabToSpawn = note4Prefab;
+                break;
+            case "Lantern":
+                prefabToSpawn = lanternPrefab;
+                break;
+        }
+
+        if (prefabToSpawn != null)
+        {
+            // Instanciar el objeto frente al jugador
+            Vector3 dropPosition = transform.position + transform.forward * 1.2f + Vector3.up * 0.2f;
+            Instantiate(prefabToSpawn, dropPosition, Quaternion.identity);
+        }
+
+        // Eliminar del inventario
+        inventory.RemoveAt(actualFocus);
+        onInventoryChanged?.Invoke();
+
+        if (inventory.Count == 0)
+        {
+            actualFocus = 0;
+        }
+        else
+        {
+            actualFocus %= inventory.Count;
+        }
+
+        onInventoryFocusChanged?.Invoke(actualFocus);
     }
 }

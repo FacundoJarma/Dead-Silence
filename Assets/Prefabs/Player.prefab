@@ -496,7 +496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441738718}
   m_LocalRotation: {x: 0.10955222, y: -0.9932868, z: -0.036921304, w: -0.004072152}
-  m_LocalPosition: {x: 0, y: -7.29, z: 0}
+  m_LocalPosition: {x: 0.5, y: -9.4, z: -0.2}
   m_LocalScale: {x: -0.29419956, y: -0.2942, z: -0.29419965}
   m_Children: []
   m_Father: {fileID: 5221809031780678892}
@@ -1142,6 +1142,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: []
   maxSize: 4
+  waterBottlePrefab: {fileID: 5302701216108351804, guid: cd29bcaed3a257340b28705740ef15db,
+    type: 3}
+  mousePrefab: {fileID: 4723998695848878155, guid: dfc5bd55a1e7bc64d94147a90b8c0a96,
+    type: 3}
+  note1Prefab: {fileID: 8779607319384741949, guid: 2f6d0fb0418440d43a5bbffad8cd9cce,
+    type: 3}
+  note2Prefab: {fileID: 8516093264319014227, guid: bc0f05ca0a3047847a5d52c92e943ada,
+    type: 3}
+  note3Prefab: {fileID: 0}
+  note4Prefab: {fileID: 0}
+  lanternPrefab: {fileID: 4294925096687804175, guid: ef0cc46efc0daf14a8ac9d727eb89ca6,
+    type: 3}
 --- !u!114 &2089893112
 MonoBehaviour:
   m_ObjectHideFlags: 0

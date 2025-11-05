@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 4723998695848878158}
   - component: {fileID: 1277872419}
   - component: {fileID: 65418343346028090}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Mouse
   m_TagString: SombrasDinamicas
   m_Icon: {fileID: 0}
