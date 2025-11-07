@@ -31,6 +31,9 @@ public class InventoryManager : MonoBehaviour
     public GameObject note4Prefab;
     public GameObject lanternPrefab;
 
+    AudioSource audioSource;
+    public AudioClip dropSound;
+
     void Start()
     {
         alertManager = FindObjectOfType<AlertManager>();
@@ -38,7 +41,7 @@ public class InventoryManager : MonoBehaviour
         throwObject = FindObjectOfType<ThrowObject>();
         notesManager = FindObjectOfType<NotesManager>();
         lantern = FindObjectOfType<Lantern>();
-
+        audioSource = GetComponent<AudioSource>();
         onInventoryFocusChanged?.Invoke(0);
     }
 
@@ -46,12 +49,11 @@ public class InventoryManager : MonoBehaviour
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        if (scroll > 0f) // scroll arriba
+        if (scroll > 0f)
             actualFocus--;
-        else if (scroll < 0f) // scroll abajo
+        else if (scroll < 0f)
             actualFocus++;
 
-        // Wrap-around (vuelve al inicio o al final)
         if (actualFocus < 0)
             actualFocus = inventory.Count != 0 ? inventory.Count - 1 : 0;
         else if (actualFocus >= inventory.Count)
@@ -64,7 +66,6 @@ public class InventoryManager : MonoBehaviour
             prevFocus = actualFocus;
         }
 
-        // Click derecho = usar ítem
         if (Input.GetMouseButtonDown(1) && inventory.Count > 0)
         {
             Item selectedItem = inventory[actualFocus];
@@ -73,8 +74,8 @@ public class InventoryManager : MonoBehaviour
                 case "Water Bottle":
                     playerHealthManager.Heal(10);
                     break;
-                case "Mouse":
-                    throwObject.Throw("Mouse");
+                case "Bottle":
+                    throwObject.Throw("Bottle");
                     break;
                 case "Note#1":
                     notesManager.openOrClose(0);
@@ -97,16 +98,15 @@ public class InventoryManager : MonoBehaviour
             {
                 inventory.RemoveAt(actualFocus);
                 onInventoryChanged?.Invoke();
-
                 actualFocus = 0;
                 onInventoryFocusChanged?.Invoke(actualFocus);
             }
         }
 
-        // Tecla G = tirar ítem
         if (Input.GetKeyDown(KeyCode.Q) && inventory.Count > 0)
         {
             RemoveAndDropItem();
+            PlayDropSound();
         }
     }
 
@@ -124,7 +124,6 @@ public class InventoryManager : MonoBehaviour
         onInventoryChanged?.Invoke();
     }
 
-    // 🧩 NUEVA FUNCIÓN: Elimina el ítem seleccionado y lo tira al suelo
     public void RemoveAndDropItem()
     {
         if (inventory.Count == 0) return;
@@ -137,7 +136,7 @@ public class InventoryManager : MonoBehaviour
             case "Water Bottle":
                 prefabToSpawn = waterBottlePrefab;
                 break;
-            case "Mouse":
+            case "Bottle":
                 prefabToSpawn = mousePrefab;
                 break;
             case "Note#1":
@@ -159,12 +158,10 @@ public class InventoryManager : MonoBehaviour
 
         if (prefabToSpawn != null)
         {
-            // Instanciar el objeto frente al jugador
             Vector3 dropPosition = transform.position + transform.forward * 1.2f + Vector3.up * 0.2f;
             Instantiate(prefabToSpawn, dropPosition, Quaternion.identity);
         }
 
-        // Eliminar del inventario
         inventory.RemoveAt(actualFocus);
         onInventoryChanged?.Invoke();
 
@@ -178,5 +175,14 @@ public class InventoryManager : MonoBehaviour
         }
 
         onInventoryFocusChanged?.Invoke(actualFocus);
+    }
+
+    void PlayDropSound()
+    {
+        if (audioSource != null && dropSound != null)
+        {
+            audioSource.pitch = Random.Range(0.95f, 1.05f);
+            audioSource.PlayOneShot(dropSound);
+        }
     }
 }

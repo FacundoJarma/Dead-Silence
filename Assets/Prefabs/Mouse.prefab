@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    itemName: Mouse
+    itemName: Bottle
     icon: {fileID: 21300000, guid: af9afbcd140be5b43b41c7f00ec35255, type: 3}
     isStackable: 0
     isConsumible: 1

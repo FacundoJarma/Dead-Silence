@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public Camera playerCamera;
-    public Transform cameraHolder; // NUEVO
+    public Transform cameraHolder;
 
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
@@ -41,16 +41,20 @@ public class PlayerMovement : MonoBehaviour
     HeadBob playerCameraHeadBob;
     bool isFalling = false;
 
+    AudioSource audioSource;
+
+    public AudioClip footstepSound;
+    public float footstepInterval = 0.5f;
+    private float footstepTimer = 0f;
+
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
         actualStamina = maxStamina;
-
         characterController = GetComponent<CharacterController>();
         currentHeight = normalHeight;
         currentCamPos = cameraHolder.localPosition;
         playerCameraHeadBob = playerCamera.GetComponent<HeadBob>();
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -66,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         if (isRunning)
         {
             actualStamina -= 0.5f;
-            if(actualStamina <= 0)
+            if (actualStamina <= 0)
             {
                 isRunning = false;
                 actualStamina = 0;
@@ -79,7 +83,6 @@ public class PlayerMovement : MonoBehaviour
             onStaminaChanged?.Invoke(actualStamina);
         }
 
-        // AGACHARSE
         if (wantsToCrouch)
         {
             isCrouching = true;
@@ -94,13 +97,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 isCrouching = false;
             }
-            else
-            {
-                Debug.Log("No se puede parar: hay algo encima");
-            }
         }
 
-        // Altura deseada según estado
         float targetHeight = isCrouching ? crouchingHeight : normalHeight;
         Vector3 targetCamPos = new Vector3(0, targetHeight, 0);
 
@@ -109,9 +107,8 @@ public class PlayerMovement : MonoBehaviour
         characterController.center = new Vector3(0, currentHeight / 2f, 0);
 
         currentCamPos = Vector3.Lerp(currentCamPos, targetCamPos, Time.deltaTime * 10);
-        cameraHolder.localPosition = currentCamPos; // ACTUALIZADO
+        cameraHolder.localPosition = currentCamPos;
 
-        // MOVIMIENTO CON VELOCIDAD SUAVIZADA
         float targetSpeed = isCrouching ? crouchingSpeed :
                             isRunning ? runningSpeed :
                             walkingSpeed;
@@ -137,7 +134,6 @@ public class PlayerMovement : MonoBehaviour
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * inputY + right * inputX) * currentSpeed;
 
-        // SALTO
         if (Input.GetButton("Jump") && canMove && characterController.isGrounded && !isCrouching)
         {
             moveDirection.y = jumpSpeed;
@@ -147,7 +143,6 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.y = movementDirectionY;
         }
 
-        // GRAVEDAD
         if (!characterController.isGrounded)
         {
             isFalling = true;
@@ -162,24 +157,43 @@ public class PlayerMovement : MonoBehaviour
             isFalling = false;
         }
 
-        // MOVIMIENTO
         characterController.Move(moveDirection * Time.deltaTime);
 
-        // ROTACIÓN
         if (canMove)
         {
             rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             cameraHolder.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
-
-
-            // HEAD BOB
-
             playerCameraHeadBob.changeConfig(isCrouching ? "Crounching" : isRunning ? "Running" : "Walking");
-
             playerCameraHeadBob.isCrouchRunning = (isCrouching && currentSpeed > runningSpeed - 0.1f);
+        }
 
+        bool isMoving = Mathf.Abs(inputX) > 0.1f || Mathf.Abs(inputY) > 0.1f;
+
+        if (characterController.isGrounded && isMoving)
+        {
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0f)
+            {
+                PlayFootstepSound();
+                float intervalMultiplier = isCrouching ? 1.6f : isRunning ? 0.4f : 1f;
+                footstepTimer = footstepInterval * intervalMultiplier;
+            }
+        }
+        else
+        {
+            footstepTimer = footstepInterval; // evita el paso extra al frenar
+        }
+
+    }
+
+    void PlayFootstepSound()
+    {
+        if (audioSource != null && footstepSound != null)
+        {
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.PlayOneShot(footstepSound);
         }
     }
 }
