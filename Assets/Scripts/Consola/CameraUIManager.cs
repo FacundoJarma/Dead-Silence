@@ -83,9 +83,9 @@ public class CameraUIManager : MonoBehaviour
 
     public void Show4()
     {
-        Debug.Log("Camaras abiertas");
         camerasPanel.SetActive(true);
-        Debug.Log(camerasPanel.name);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void HidePanel()

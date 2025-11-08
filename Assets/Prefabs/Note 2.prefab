@@ -122,7 +122,6 @@ GameObject:
   - component: {fileID: 2391437147025984947}
   - component: {fileID: 495333580788684814}
   - component: {fileID: 608012268218258935}
-  - component: {fileID: 7153408188927827686}
   m_Layer: 0
   m_Name: Note Model
   m_TagString: Model
@@ -202,20 +201,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.7954578, y: 1.4961938, z: 2}
   m_Center: {x: 0.8977289, y: 0.09409624, z: -0.00000006038857}
---- !u!114 &7153408188927827686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8584823111643171642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d3f816edc93fd84b96c004a9dedfedf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item:
-    itemName: Note#1
-    icon: {fileID: 21300000, guid: 976399487f77e9346bcfa4a7fb6633ed, type: 3}
-    isStackable: 0
-    isConsumible: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NotesManager : MonoBehaviour
 {
@@ -58,8 +59,13 @@ public class NotesManager : MonoBehaviour
 
     public void openOrClose(int noteid)
     {
+        GameObject.FindGameObjectWithTag("Crosshair").GetComponent<Image>().enabled = noteDisplay.active;
+
         noteText.text = notes[noteid];
         noteDisplay.SetActive(!noteDisplay.active);
     }
-
+    public void Close()
+    {
+        noteDisplay.SetActive(false);
+    }
 }

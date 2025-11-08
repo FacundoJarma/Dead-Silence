@@ -10,6 +10,7 @@ TagManager:
   - SombrasDinamicas
   - Ground
   - Light
+  - Crosshair
   layers:
   - Default
   - TransparentFX

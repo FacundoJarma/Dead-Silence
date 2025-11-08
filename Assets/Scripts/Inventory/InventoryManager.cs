@@ -31,8 +31,10 @@ public class InventoryManager : MonoBehaviour
     public GameObject note4Prefab;
     public GameObject lanternPrefab;
 
+    [Header("Sonidos")]
     AudioSource audioSource;
     public AudioClip dropSound;
+    public AudioClip drinkSound; // 👈 Nuevo sonido para tomar agua
 
     void Start()
     {
@@ -73,22 +75,29 @@ public class InventoryManager : MonoBehaviour
             {
                 case "Water Bottle":
                     playerHealthManager.Heal(10);
+                    PlayDrinkSound(); // 👈 Reproduce el sonido de beber
                     break;
+
                 case "Bottle":
                     throwObject.Throw("Bottle");
                     break;
+
                 case "Note#1":
                     notesManager.openOrClose(0);
                     break;
+
                 case "Note#2":
                     notesManager.openOrClose(1);
                     break;
+
                 case "Note#3":
                     notesManager.openOrClose(2);
                     break;
+
                 case "Note#4":
                     notesManager.openOrClose(3);
                     break;
+
                 case "Lantern":
                     lantern.Turn();
                     break;
@@ -140,15 +149,22 @@ public class InventoryManager : MonoBehaviour
                 prefabToSpawn = mousePrefab;
                 break;
             case "Note#1":
+                notesManager.Close();
                 prefabToSpawn = note1Prefab;
                 break;
             case "Note#2":
+                notesManager.Close();
+
                 prefabToSpawn = note2Prefab;
                 break;
             case "Note#3":
+                notesManager.Close();
+
                 prefabToSpawn = note3Prefab;
                 break;
             case "Note#4":
+                notesManager.Close();
+
                 prefabToSpawn = note4Prefab;
                 break;
             case "Lantern":
@@ -183,6 +199,15 @@ public class InventoryManager : MonoBehaviour
         {
             audioSource.pitch = Random.Range(0.95f, 1.05f);
             audioSource.PlayOneShot(dropSound);
+        }
+    }
+
+    void PlayDrinkSound() // 👈 Nueva función
+    {
+        if (audioSource != null && drinkSound != null)
+        {
+            audioSource.pitch = Random.Range(0.95f, 1.05f);
+            audioSource.PlayOneShot(drinkSound);
         }
     }
 }
