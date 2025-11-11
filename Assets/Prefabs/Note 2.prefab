@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
     itemName: Note#1
-    icon: {fileID: 21300000, guid: 976399487f77e9346bcfa4a7fb6633ed, type: 3}
+    icon: {fileID: 21300000, guid: 3ff8fd5e35424a2429a639e0e1c214ff, type: 3}
     isStackable: 0
     isConsumible: 0
 --- !u!1 &8584823111643171642

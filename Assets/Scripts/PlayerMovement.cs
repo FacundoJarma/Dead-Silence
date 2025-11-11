@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
-        bool wantsToCrouch = Input.GetKey(KeyCode.LeftControl);
+        bool wantsToCrouch = Input.GetKey(KeyCode.C);
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
 
         if (isRunning)
@@ -177,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
             if (footstepTimer <= 0f)
             {
                 PlayFootstepSound();
-                float intervalMultiplier = isCrouching ? 1.6f : isRunning ? 0.4f : 1f;
+                float intervalMultiplier = isCrouching ? 1.6f : isRunning ? 0.7f : 1.2f;
                 footstepTimer = footstepInterval * intervalMultiplier;
             }
         }
