@@ -6,8 +6,33 @@ using UnityEngine.UI;
 public class ConsoleManager : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject consoleCanvas;
+    [SerializeField] private CameraUIManager camUi;
+    [SerializeField] private DoorsUIManager doorsUI;
 
-    [SerializeField] CameraUIManager camUi;
+
+    private Transform player;           // referencia al jugador
+    private Vector3 initialPlayerPos;   // posición inicial cuando se abre la consola
+    private bool consoleOpen = false;   // estado de la consola
+    private float movementThreshold = 1f; // distancia máxima permitida antes de cerrar
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    void Update()
+    {
+        // Si la consola está abierta, verificamos el movimiento del jugador
+        if (consoleOpen && player != null)
+        {
+            float distance = Vector3.Distance(player.position, initialPlayerPos);
+            if (distance > movementThreshold)
+            {
+                Close();
+            }
+        }
+    }
+
     public void Interact()
     {
         bool isActive = !consoleCanvas.activeSelf;
@@ -15,30 +40,31 @@ public class ConsoleManager : MonoBehaviour, IInteractable
 
         if (isActive)
         {
-            // Mostrar y desbloquear el cursor
-            GameObject.FindGameObjectWithTag("Crosshair").GetComponent<Image>().enabled = false;
+            consoleOpen = true;
+            initialPlayerPos = player.position; // guardar posición actual
 
+            // Ocultar la mira y liberar el cursor
+            GameObject.FindGameObjectWithTag("Crosshair").GetComponent<Image>().enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            // (opcional) pausar el juego si querés que el jugador no se mueva mientras usa la consola
         }
         else
         {
             Close();
         }
-
     }
-
 
     public void Close()
     {
-        // Ocultar y bloquear el cursor nuevamente
-        GameObject.FindGameObjectWithTag("Crosshair").GetComponent<Image>().enabled = true;
+        consoleOpen = false;
 
+        // Restaurar cursor y cerrar interfaz
+        GameObject.FindGameObjectWithTag("Crosshair").GetComponent<Image>().enabled = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
         camUi.HidePanel();
+        doorsUI.HidePanel();
         consoleCanvas.SetActive(false);
     }
 }

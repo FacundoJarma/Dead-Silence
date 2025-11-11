@@ -1,47 +1,38 @@
 fileFormatVersion: 2
-guid: 77e60d175fa0ff5469178fde969db50c
+guid: 97bdde83376ebd1448fd1ea2ef5bdfa0
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: electric_ground_box_01
-    100004: electric_wall_box_01
-    100006: electric_wall_ui_01
-    100008: electric_wall_ui_02
-    100010: metal_pipe_01
-    100012: metal_pipe_02
-    400000: //RootNode
-    400002: electric_ground_box_01
-    400004: electric_wall_box_01
-    400006: electric_wall_ui_01
-    400008: electric_wall_ui_02
-    400010: metal_pipe_01
-    400012: metal_pipe_02
-    2100000: Material.008
-    2300000: electric_ground_box_01
-    2300002: electric_wall_box_01
-    2300004: electric_wall_ui_01
-    2300006: electric_wall_ui_02
-    2300008: metal_pipe_01
-    2300010: metal_pipe_02
-    3300000: electric_ground_box_01
-    3300002: electric_wall_box_01
-    3300004: electric_wall_ui_01
-    3300006: electric_wall_ui_02
-    3300008: metal_pipe_01
-    3300010: metal_pipe_02
-    4300000: metal_pipe_01
-    4300002: electric_wall_ui_02
-    4300004: electric_wall_ui_01
-    4300006: electric_wall_box_01
-    4300008: electric_ground_box_01
-    4300010: metal_pipe_02
+    100000: Cube
+    100002: Frame_Low
+    100004: Hinges_Low
+    100006: Main_Low
+    100008: //RootNode
+    400000: Cube
+    400002: Frame_Low
+    400004: Hinges_Low
+    400006: Main_Low
+    400008: //RootNode
+    2100000: puertablindada
+    2100002: cartel
+    2300000: Cube
+    2300002: Frame_Low
+    2300004: Hinges_Low
+    2300006: Main_Low
+    3300000: Cube
+    3300002: Frame_Low
+    3300004: Hinges_Low
+    3300006: Main_Low
+    4300000: Frame_Low
+    4300002: Hinges_Low
+    4300004: Main_Low
+    4300006: Cube
   externalObjects:
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Material.008
-    second: {fileID: 2100000, guid: 223ddf5135840514aa4bbb8bd6fe66ae, type: 2}
+      name: door931-fixed
+    second: {fileID: 2800000, guid: 1faf3245a7d57b3419595a12414f2cf5, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
@@ -72,7 +63,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 5
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5302701216108383516}
   - component: {fileID: 5302701216108351807}
   - component: {fileID: 5302701216108351805}
-  m_Layer: 12
-  m_Name: Bottle
+  m_Layer: 0
+  m_Name: WaterBottle
   m_TagString: SombrasDinamicas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 3, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &5848916878528839122
 GameObject:
   m_ObjectHideFlags: 0

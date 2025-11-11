@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8516093264319014227}
-  m_LocalRotation: {x: -0.1653295, y: -0.16532956, z: 0.6875072, w: 0.6875072}
+  m_LocalRotation: {x: -0.16532879, y: -0.16532877, z: 0.68750745, w: 0.6875074}
   m_LocalPosition: {x: 32.38, y: 3.04, z: -37.35}
   m_LocalScale: {x: 0.10000002, y: 1.2007604, z: 0.92913204}
   m_Children:
@@ -91,8 +91,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.7954578, y: 1.4961938, z: 2}
-  m_Center: {x: 0.8977289, y: 0.09409624, z: -0.00000006038857}
+  m_Size: {x: 4.6898084, y: 1.4961938, z: 2}
+  m_Center: {x: 1.8449041, y: 0.09409624, z: -0.00000006324363}
 --- !u!114 &8516093264319014236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    itemName: Note#2
+    itemName: Note#1
     icon: {fileID: 21300000, guid: 976399487f77e9346bcfa4a7fb6633ed, type: 3}
     isStackable: 0
     isConsumible: 0
@@ -121,7 +121,6 @@ GameObject:
   - component: {fileID: 5017589948328273865}
   - component: {fileID: 2391437147025984947}
   - component: {fileID: 495333580788684814}
-  - component: {fileID: 608012268218258935}
   m_Layer: 0
   m_Name: Note Model
   m_TagString: Model
@@ -188,16 +187,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &608012268218258935
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8584823111643171642}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.7954578, y: 1.4961938, z: 2}
-  m_Center: {x: 0.8977289, y: 0.09409624, z: -0.00000006038857}

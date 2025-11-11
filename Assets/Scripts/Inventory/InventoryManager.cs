@@ -174,7 +174,7 @@ public class InventoryManager : MonoBehaviour
 
         if (prefabToSpawn != null)
         {
-            Vector3 dropPosition = transform.position + transform.forward * 1.2f + Vector3.up * 0.2f;
+            Vector3 dropPosition = transform.position + transform.forward + Vector3.up * 0.2f;
             Instantiate(prefabToSpawn, dropPosition, Quaternion.identity);
         }
 

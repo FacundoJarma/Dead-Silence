@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7221869509072632268}
-  m_LocalRotation: {x: -0.1653295, y: -0.16532956, z: 0.6875072, w: 0.6875072}
+  m_LocalRotation: {x: -0.16532879, y: -0.16532877, z: 0.68750745, w: 0.6875074}
   m_LocalPosition: {x: 8.93, y: 3.04, z: -39.81}
   m_LocalScale: {x: 0.10000002, y: 1.2007604, z: 0.92913204}
   m_Children:
@@ -91,8 +91,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.7954578, y: 1.4961938, z: 2}
-  m_Center: {x: 0.8977289, y: 0.09409624, z: -0.00000006038857}
+  m_Size: {x: 4.340096, y: 1.4961938, z: 2}
+  m_Center: {x: 1.6700476, y: 0.09409624, z: -0.000000060725014}
 --- !u!114 &7221869509072632259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +121,6 @@ GameObject:
   - component: {fileID: 6319692409014205270}
   - component: {fileID: 3685658428606452012}
   - component: {fileID: 1497947147374429329}
-  - component: {fileID: 1902232450320419176}
   m_Layer: 0
   m_Name: Note Model
   m_TagString: Model
@@ -188,16 +187,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1902232450320419176
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7292852375728248741}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.7954578, y: 1.4961938, z: 2}
-  m_Center: {x: 0.8977289, y: 0.09409624, z: -0.00000006038857}
